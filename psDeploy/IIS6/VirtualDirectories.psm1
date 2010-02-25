@@ -7,27 +7,65 @@ function New-VirtualDirectory
 {
     param
     (
-    	[string] $siteName = $(throw "Must provide a Site Name"),
-	    [string] $vDirName = $(throw "Must provide a Virtual Directory Name"),
-	    [string] $path = $(throw "Must provide a local filesystem path")
+    	[string] $Website = $(throw "Must provide a website ame"),
+	    [string] $Name = $(throw "Must provide a virtual directory Name"),
+	    [string] $Path = $(throw "Must provide a local filesystem path")
 	)
 	
-	$iisWmiObj = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$siteName'"
+	$iisWmiObj = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$Website'"
 
 	$objIIS = new-object System.DirectoryServices.DirectoryEntry("IIS://localhost/" + $iisWmiObj.Name + "/Root")
 	$children = $objIIS.psbase.children
-	$vDir = $children.add($vDirName,$objIIS.psbase.SchemaClassName)
+    
+	$vDir = $children.add($Name, "IISWebVirtualDir")
 	$vDir.psbase.CommitChanges()
-	$vDir.Path = $path
+	$vDir.Path = $Path
 	$vDir.defaultdoc = "Default.htm"
 	$vDir.psbase.CommitChanges()
+    
+    Write-Output "Created virtual directory '$Name' in website '$Website'"
 }
+
+
+<#
+.Synopsis
+Deletes the virtual directory
+#>
+function Remove-VirtualDirectory
+{
+    param
+    (
+        [string] $Website = $(throw "Must provide a website name"),
+        [string] $Name = $(throw "Must provide a virtual directory name")
+    )
+     
+    $websiteSettings = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$Website'"
+    $entry = new-object System.DirectoryServices.DirectoryEntry("IIS://localhost/" + $websiteSettings.Name + "/Root")
+    
+    $directories = $entry.psbase.children
+    
+    Try
+    {
+        $virtualDir = $directories.find($Name, "IIsWebVirtualDir")
+    }
+    Catch
+    {
+        Write-Output "Could not find virtual directory '$Name' to delete"
+        return
+    } 
+    
+    $directories.Remove($virtualDir)
+    Write-Output "Deleted virtual directory '$Name' from website '$Website'"
+}
+
+
 
 
 <#
 .Synopsis
 Creates a network virtual directory
 #>
+<#
 function New-UNCVirtualDirectory
 {
     param(  [string]$siteName = $(throw "Must provide a Site Name"),
@@ -48,12 +86,13 @@ function New-UNCVirtualDirectory
 	$vDir.UNCPassword = $uncPassword
 	$vDir.psbase.CommitChanges()
 }
-
+#>
 
 <#
 .Synopsis
 What does this do?
 #>
+<#
 function New-UNCVirtualDirectory2
 {
     param
@@ -79,21 +118,6 @@ function New-UNCVirtualDirectory2
 	$newVDir.Put();
 	if (!$?) { $newVDir.Put() }
 }
-
-	
-
-<#
-.Synopsis
-Deletes the virtual directory
 #>
-function Remove-VirtualDirectory
-{
-    param
-    (
-        [string] $applicationName = $(throw "Must provide app name")
-    )
-        
-    $vdtest= [adsi]"IIS://localhost/w3svc/1/Root/$applicationName"
-    $vdtest.AppDeleteRecursive()
-}
+	
 
