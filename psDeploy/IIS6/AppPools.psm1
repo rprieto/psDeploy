@@ -114,11 +114,12 @@ function Remove-AppPool
     
 	if ($appPool)
     {
-        &{
+        Try
+        {
             $appPool.Delete()
             Write-Output "Deleted application pool '$Name'"
         }
-        trap [System.Management.Automation.MethodInvocationException]
+        Catch [System.Management.Automation.MethodInvocationException]
         {
             # The exception that is normally thrown is very generic / vague
             throw "Failed deleting application pool '$Name'. Check that it does not host any website or application."
