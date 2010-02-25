@@ -1,5 +1,8 @@
+<#
+    psDeploy - A Powershell deployment automation library
+    Find the latest version and documentation at http://github.com/rprieto/psDeploy
+#>
 
-#Import all the commandlets
 
 $currentDir = Split-Path $MyInvocation.MyCommand.Path
 
@@ -16,7 +19,7 @@ Import-Module -Name "$currentDir\IIS6\VirtualDirectories.psm1" -Force
 
 <#
 .Synopsis
-Checks that WMI is accessible.
+Checks that all the dependencies are available.
 Please call this before calling any other cmdlets in psDeploy
 #>
 function Assert-PsDeploySupported
