@@ -41,10 +41,14 @@ function Initialize-PsDeploy
 {
     param
     (
+        [switch] $FailFast,
         [string] $LogPath = $null
     ) 
 
-	$ErrorActionPreference = 'Stop'
+    if ($FailFast)
+    {
+	   $ErrorActionPreference = 'Stop'
+    }
     
     if ($LogPath -ne $null)
     {
