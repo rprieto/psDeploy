@@ -7,8 +7,8 @@ function New-ScheduledTask
 {
     param
     (
-        [string] $Path = $(throw 'Muse provide a username'),
-        [string] $Name = $(throw 'Muse provide a username')
+        [string] $Path = $(throw 'Must provide a username'),
+        [string] $Name = $(throw 'Must provide a username')
     ) 
 }
 
