@@ -32,3 +32,30 @@ function Assert-PsDeploySupported
 }
 
 
+
+<#
+.Synopsis
+Initialises standard deployment settings
+#>
+function Initialize-PsDeploy
+{
+    param
+    (
+        [string] $LogPath = $null
+    ) 
+
+	$ErrorActionPreference = 'Stop'
+    
+    if ($LogPath -ne $null)
+    {
+        Try
+        {
+            $date = Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s"
+            Start-Transcript -Path "$LogPath\$date.log"
+        }
+        Catch [System.Management.Automation.PSNotSupportedException]
+        {
+            Write-Output "Log transcripts are not available when running from the IDE"
+        }
+    }
+}
