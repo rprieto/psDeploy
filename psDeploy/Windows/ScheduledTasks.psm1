@@ -52,6 +52,7 @@ function Run-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /run /tn ""$Name"""
+    Write-Output "Scheduled task '$Name' triggered successfully"
 }
 
 
@@ -68,6 +69,7 @@ function Enable-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /run /tn ""$Name"" /enable"
+    Write-Output "Scheduled task '$Name' enabled successfully"
 }
 
 
@@ -83,6 +85,7 @@ function Disable-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /run /tn ""$Name"" /disable"
+     Write-Output "Scheduled task '$Name' disabled successfully"
 }
 
 
@@ -178,6 +181,7 @@ function New-ScheduledTask
     }
     
     Invoke-Expression "schtasks.exe $basicParams /sc $scheduleParams $additionalParams /f"
+    Write-Output "Scheduled task '$Name' created successfully"
 }
 
 
@@ -313,5 +317,6 @@ function Remove-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /delete /tn ""$Name"" /f"
+    Write-Output "Scheduled task '$Name' deleted successfully"
 }
 
