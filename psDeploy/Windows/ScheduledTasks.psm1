@@ -248,7 +248,7 @@ function New-ScheduledTask2
     {      
         if ($Minutes)
         {
-            $scheduleParams = "minutes /mo $Every"
+            $scheduleParams = "minute /mo $Every"
         }
         elseif ($Hours)
         {
@@ -310,14 +310,8 @@ function Remove-ScheduledTask
     param
     (
         [string] $Name = $(throw "Must provide a task name"),
-        [switch] $Force
     )
     
-    if ($Force)
-    {
-        $params = "/f"
-    }
-    
-    Invoke-Expression "schtasks.exe /delete /tn ""$Name"" $params"
+    Invoke-Expression "schtasks.exe /delete /tn ""$Name"" /f"
 }
 
