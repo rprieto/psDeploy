@@ -52,7 +52,7 @@ function Run-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /run /tn ""$Name"""
-    Write-Output "Scheduled task '$Name' triggered successfully"
+    Write-Output "Triggered scheduled task '$Name'"
 }
 
 
@@ -69,7 +69,7 @@ function Enable-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /run /tn ""$Name"" /enable"
-    Write-Output "Scheduled task '$Name' enabled successfully"
+    Write-Output "Enabled scheduled task '$Name'"
 }
 
 
@@ -85,103 +85,7 @@ function Disable-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /run /tn ""$Name"" /disable"
-     Write-Output "Scheduled task '$Name' disabled successfully"
-}
-
-
-<#
-.Synopsis
-Creates a new scheduled task.
-The following schedule types are acceptable:
-
--Repeat "Daily" -Every 2 -StartTime "21:00"
--Repeat "Monthly" -Every 1 -StartTime "21:00"
--Repeat "Monthly" -OnThe "Second" -Days "Tue" -Months "Jan,Feb" -StartTime "21:00" 
--OnceOnThe "17/04/2010" -StartTime "21:00" 
--AtStartup
--AtLogon
--WhenIdle 15
-
-The -Days and -Months parameters can also take "*" to mean all.
-#>
-function New-ScheduledTask
-{
-    param
-    (
-    	[string] $Name = $(throw "Must provide a task name"),
-    	[string] $Path = $(throw "Must provide the path to the executable"),
-        [DateTime] $StartTime = $null,
-        [string] $Repeat = $null,
-        [int] $Every = $null,
-        [string] $OnThe = $null,
-        [DateTime] $Once = $null,
-        [string] $Days = $null,
-        [string] $Months = $null,
-        [switch] $OnStart = $null,
-        [switch] $OnLogon = $null,
-        [int] $WhenIdleFor = $null
-	)
-    
-    $exclusiveSchedules = $Repeat -xor $Once -xor $OnStart -xor $OnLogon -xor $WhenIdleFor
-    if (!$exclusiveSchedules)
-    {
-        throw New-Object System.ArgumentException "Parameters are not valid, please choose only one schedule type."
-    }
-    
-    # Basic structure for calling schtasks
-    $basicParams = "/create /tn ""$Name"" /tr ""$Path"""
-    $scheduleParams = ""
-    $additionalParams = ""
-    
-    if ($Repeat)
-    {
-        Assert-ValidSwitch -Value $Repeat -AvailableOptions "Minutes", "Hourly", "Daily", "Weekly", "Monthly"
-
-        $time = $StartTime.ToString("HH:mm")
-
-        if ($Days)
-        {
-            $additionalParams += " /d $Days"
-        }
-        
-        if ($Months)
-        {
-            $additionalParams += " /m $Months"
-        }
-
-        if ($Repeat = "Monthly" -and $OnThe)
-        {
-            Assert-ValidSwitch -Value $OnThe -AvailableOptions "LastDay", "First", "Second", "Third", "Fourth", "Last"
-            $scheduleParams = "$Repeat /mo $OnThe /st $time"
-        }
-        else
-        {
-            $scheduleParams = "$Repeat /mo $Every /st $time"
-        }
-        
-        
-    }
-    elseif ($Once)
-    {
-        $date = $Once.ToString("MM/dd/yyyy")
-        $time = $StartTime.ToString("HH:mm")
-        $scheduleParams = "once /sd $date /st $time"
-    }
-    elseif ($OnStart)
-    {
-        $scheduleParams = "onstart"
-    }
-    elseif ($OnLogon)
-    {
-        $scheduleParams = "onlogon"
-    }
-    elseif ($WhenIdleFor)
-    {
-        $scheduleParams = "onidle /i $WhenIdleFor"
-    }
-    
-    Invoke-Expression "schtasks.exe $basicParams /sc $scheduleParams $additionalParams /f"
-    Write-Output "Scheduled task '$Name' created successfully"
+     Write-Output "Disabled scheduled task '$Name'"
 }
 
 
@@ -198,7 +102,7 @@ function New-ScheduledTask
     -Every -Month -In "Jan,Feb,Mar" -OnThe 17 -At 23:00
     -Every -Month -OnTheLast "Wed" -At 20:00
 #>
-function New-ScheduledTask2
+function New-ScheduledTask
 {
     param
     (
@@ -216,18 +120,18 @@ function New-ScheduledTask2
         
         # Frequency
         [Alias("Minute")] [switch] $Minutes,
-        [Alias("Hour")] [switch] $Hours,
-        [Alias("Day")] [switch] $Days,
-        [Alias("Week")] [switch] $Weeks,
-        [Alias("Month")] [switch] $Months,
+        [Alias("Hour")]   [switch] $Hours,
+        [Alias("Day")]    [switch] $Days,
+        [Alias("Week")]   [switch] $Weeks,
+        [Alias("Month")]  [switch] $Months,
         
         # Modifiers
-        [string] $On,          # "Mon,Tue"  (list of days)
-        [string] $In,          # "Jan,Feb"  (list of months)
-        [DateTime] $At,          # 21:00       (time)
-        [int] $OnThe,          # 17          (date of the month)
-        [string] $OnTheFirst,  # "Mon"       (day of the month)
-        [string] $OnTheLast    # "Mon"       (day of the month)
+        [string] $On,           # "Mon,Tue"  (list of days)
+        [string] $In,           # "Jan,Feb"  (list of months)
+        [DateTime] $At,         # 21:00       (time)
+        [int] $OnThe,           # 17          (date of the month)
+        [string] $OnTheFirst,   # "Mon"       (day of the month)
+        [string] $OnTheLast     # "Mon"       (day of the month)
     )
     
     $basicParams = "/create /tn ""$Name"" /tr ""$Path"" /ru $User /rp $Password"
@@ -300,6 +204,7 @@ function New-ScheduledTask2
     $command = "schtasks.exe $basicParams /sc $scheduleParams /f"
     #$command
     Invoke-Expression $command
+    Write-Output "Created scheduled task '$Name'"
 }
 
 
@@ -317,6 +222,6 @@ function Remove-ScheduledTask
     )
     
     Invoke-Expression "schtasks.exe /delete /tn ""$Name"" /f"
-    Write-Output "Scheduled task '$Name' deleted successfully"
+    Write-Output "Deleted scheduled task '$Name'"
 }
 
