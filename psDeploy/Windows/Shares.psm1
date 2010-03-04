@@ -35,11 +35,11 @@ function New-SharedFolder
     $result = $objWMI.Create($Path, $Name, $Type)
     if ($result -eq 0)
     {
-        Write-Output "Shared folder '$Name' created, pointing to '$Path'"
+        Write-Output "Created shared '$Name', pointing to '$Path'"
     }
     else
     {
-        throw [RuntimeException] "Failed creating shared folder '$Name', error code = $result"
+        throw [RuntimeException] "Failed to create share '$Name', error code = $result"
     }
 }
 
@@ -50,5 +50,21 @@ Removes the shared status of an existing folder
 #>
 function Remove-SharedFolder
 {
+    param
+    (
+        [string] $Name = $(throw "Please provide the name of the share to delete")
+    )
+    
+    $shares = Get-WMIObject -Class Win32_Share | Where {$_.Name -eq $Name}
+    
+    if ($share)
+    {
+        $share.Delete()
+        Write-Output "Deleted share '$Name'"
+    }
+    else
+    {
+        Write-Warning "Could not find share '$Name' to be deleted"
+    }
 }
 
