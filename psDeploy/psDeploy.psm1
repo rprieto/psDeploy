@@ -11,6 +11,8 @@ Import-Module -Name "$currentDir\Windows\ScheduledTasks.psm1" -Force
 Import-Module -Name "$currentDir\Windows\Users.psm1" -Force
 Import-Module -Name "$currentDir\Windows\Shares.psm1" -Force
 Import-Module -Name "$currentDir\Windows\Permissions.psm1" -Force
+Import-Module -Name "$currentDir\Windows\Network.psm1" -Force
+Import-Module -Name "$currentDir\Windows\Services.psm1" -Force
 Import-Module -Name "$currentDir\IIS6\AppPools.psm1" -Force
 Import-Module -Name "$currentDir\IIS6\Websites.psm1" -Force
 Import-Module -Name "$currentDir\IIS6\VirtualDirectories.psm1" -Force
