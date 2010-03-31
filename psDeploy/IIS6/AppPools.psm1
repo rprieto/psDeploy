@@ -93,7 +93,14 @@ function New-AppPool
 	[Void]$newPool.GetType()
 	
 	[Void]$newPool.Put()
-	if (!$?) { throw "Failed to create $Name" }
+	if (!$?)
+    {
+        throw "Failed to create $Name"
+    }
+    else
+    {
+        Write-Output "Created application pool '$Name'"
+    }
 }
 
 
