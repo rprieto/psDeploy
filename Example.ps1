@@ -11,6 +11,6 @@ Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
 # Deployment steps
 #
 
-New-AppPool -Name 'Temp'
-Remove-AppPool -Name 'Temp'
+New-IIS6AppPool -Name 'Temp'
+Remove-IIS6AppPool -Name 'Temp'
 
