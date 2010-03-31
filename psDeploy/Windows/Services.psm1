@@ -6,14 +6,14 @@ function Remove-Service
 {
     param
     (
-        [string] $Name = $(throw 'Must provide a service name'),
+        [string] $Name = $(throw 'Must provide a service name')
     ) 
     
-	$svc = gwmi win32_service -filter "name='$Name'"
+	$service = gwmi win32_service -filter "name='$Name'"
 	
-	if ($svc -ne $null)
+	if ($service -ne $null)
 	{
-		$svc.delete()
+		$service.delete()
 		Write-Output "Deleted service '$Name'"
 	}
 	else
@@ -38,9 +38,9 @@ function Set-ServiceCredentials
     ) 
     
     
-    $svc = gwmi win32_service -filter "name='$Name'"
+    $service = gwmi win32_service -filter "name='$Name'"
 	
-	if ($svc -ne $null)
+	if ($service -ne $null)
 	{
 		$service.change($null, $null, $null, $null, $null, $null, $Username, $Password, $null, $null, $null) | out-null
 		Write-Output "Credentials changed for service '$Name'"
