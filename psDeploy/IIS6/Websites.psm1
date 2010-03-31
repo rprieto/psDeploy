@@ -11,6 +11,8 @@ function Start-WebSite
         [string] $Name = $(throw "Must provide a website name")
     )
 
+    Assert-II6Support
+
     $webServerSetting = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$Name'"
     
     if ($webServerSetting)
@@ -39,6 +41,8 @@ function Stop-WebSite
         [string] $Name = $(throw "Must provide a website name")
     )
 
+    Assert-II6Support
+
     $webServerSetting = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$Name'"
     
     if ($webServerSetting)
@@ -66,6 +70,8 @@ function Remove-WebSite
     (
         [string] $Name = $(throw "Must provide a Site Name")
     )
+
+    Assert-II6Support
 
 	$webServerSetting = Get-WmiObject -Namespace "root\MicrosoftIISv2" -Class IISWebServerSetting -Filter "ServerComment = '$Name'"
     
@@ -98,6 +104,8 @@ function New-WebSite
         [string] $DefaultDoc = $null,
 	    [switch] $DefaultAccess
     )
+
+    Assert-II6Support
 
 	$service = Get-WmiObject -namespace "root\MicrosoftIISv2" -class "IIsWebService"
 

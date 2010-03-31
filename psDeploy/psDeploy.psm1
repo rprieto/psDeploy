@@ -17,11 +17,7 @@ Please call this before calling any other cmdlets in psDeploy
 #>
 function Assert-PsDeploySupported
 {
-	[wmiclass] 'root/MicrosoftIISv2:IIsWebServer' > $null
-	if (!$?)
-	{
-		throw "The IIS WMI Provider does not appear to be installed"
-	}
+	# Nothing for the moment...
 }
 
 

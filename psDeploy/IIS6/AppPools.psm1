@@ -11,6 +11,8 @@ function Start-AppPool
         [string] $Name = $(throw "Must provide an app pool name")
     )
     
+    Assert-II6Support
+    
 	$appPool = Get-WmiObject -Namespace "root\MicrosoftIISv2" -class IIsApplicationPool -Filter "Name ='W3SVC/APPPOOLS/$Name'"
 	
     if ($appPool)
@@ -35,6 +37,8 @@ function Stop-AppPool
     (
         [string]$Name = $(throw "Must provide an app pool name")
     )
+    
+    Assert-II6Support
     
 	$appPool = Get-WmiObject -Namespace "root\MicrosoftIISv2" -class IIsApplicationPool -Filter "Name ='W3SVC/APPPOOLS/$Name'"
     
@@ -64,6 +68,8 @@ function New-AppPool
         [string] $Username = 'NetworkService',
         [string] $Password = $null
     )
+
+    Assert-II6Support
 
 	$appPoolSettings = [wmiclass] 'root\MicrosoftIISv2:IISApplicationPoolSetting'
 	$newPool = $appPoolSettings.PSBase.CreateInstance()
@@ -116,6 +122,8 @@ function Remove-AppPool
     (
         [string] $Name = $(throw "Must provide an app pool name")
     )
+    
+    Assert-II6Support
     
 	$appPool = Get-WmiObject -Namespace "root\MicrosoftIISv2" -class IIsApplicationPool -Filter "Name ='W3SVC/APPPOOLS/$Name'"
     

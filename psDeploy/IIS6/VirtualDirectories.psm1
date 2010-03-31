@@ -12,6 +12,8 @@ function New-VirtualDirectory
 	    [string] $Path = $(throw "Must provide a local filesystem path")
 	)
 	
+    Assert-II6Support
+    
 	$iisWmiObj = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$Website'"
 
 	$objIIS = new-object System.DirectoryServices.DirectoryEntry("IIS://localhost/" + $iisWmiObj.Name + "/Root")
@@ -38,7 +40,9 @@ function Remove-VirtualDirectory
         [string] $Website = $(throw "Must provide a website name"),
         [string] $Name = $(throw "Must provide a virtual directory name")
     )
-     
+    
+    Assert-II6Support
+    
     $websiteSettings = Get-WmiObject -Namespace 'root\MicrosoftIISv2' -Class IISWebServerSetting -Filter "ServerComment = '$Website'"
     $entry = new-object System.DirectoryServices.DirectoryEntry("IIS://localhost/" + $websiteSettings.Name + "/Root")
     
