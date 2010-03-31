@@ -3,7 +3,7 @@
 .Synopsis
 Creates a virtual directory
 #>
-function New-VirtualDirectory
+function New-IIS6VirtualDirectory
 {
     param
     (
@@ -33,7 +33,7 @@ function New-VirtualDirectory
 .Synopsis
 Deletes the virtual directory
 #>
-function Remove-VirtualDirectory
+function Remove-IIS6VirtualDirectory
 {
     param
     (

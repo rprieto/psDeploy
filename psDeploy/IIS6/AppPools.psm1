@@ -4,7 +4,7 @@
 .Synopsis
 Starts the app pool
 #>
-function Start-AppPool
+function Start-IIS6AppPool
 {
     param
     (
@@ -31,7 +31,7 @@ function Start-AppPool
 .Synopsis
 Stops the app pool
 #>
-function Stop-AppPool
+function Stop-IIS6AppPool
 {
     param
     (
@@ -59,7 +59,7 @@ function Stop-AppPool
 .Synopsis
 Creates an app pool
 #>
-function New-AppPool
+function New-IIS6AppPool
 {
     param
     (
@@ -116,7 +116,7 @@ function New-AppPool
 Deletes an app pool from IIS
 Note: any website in this application pool has to be deleted first
 #>
-function Remove-AppPool
+function Remove-IIS6AppPool
 {
     param
     (

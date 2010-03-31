@@ -4,7 +4,7 @@
 .Synopsis
 Starts the website
 #>
-function Start-WebSite
+function Start-IIS6WebSite
 {
     param
     (
@@ -34,7 +34,7 @@ function Start-WebSite
 .Synopsis
 Starts the website
 #>
-function Stop-WebSite
+function Stop-IIS6WebSite
 {
     param
     (
@@ -64,7 +64,7 @@ function Stop-WebSite
 .Synopsis
 Deletes the website
 #>
-function Remove-WebSite
+function Remove-IIS6WebSite
 {
     param
     (
@@ -91,7 +91,7 @@ function Remove-WebSite
 .Synopsis
 Creates a new website
 #>
-function New-WebSite
+function New-IIS6WebSite
 {
     param
     (
