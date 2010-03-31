@@ -44,7 +44,7 @@ function Get-ScheduledTask
 .Synopsis
 Forces an existing scheduled task to run
 #>
-function Run-ScheduledTask
+function Start-ScheduledTask
 {
     param
     (
@@ -218,7 +218,7 @@ function Remove-ScheduledTask
 {
     param
     (
-        [string] $Name = $(throw "Must provide a task name"),
+        [string] $Name = $(throw "Must provide a task name")
     )
     
     Invoke-Expression "schtasks.exe /delete /tn ""$Name"" /f"
