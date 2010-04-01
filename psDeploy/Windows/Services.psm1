@@ -1,5 +1,22 @@
 <#
 .Synopsis
+Returns if the given service exists (boolean)
+Get-Service returns an error if the service doesn't exist.
+#>
+function Find-Service
+{
+    param
+    (
+        [string] $Name = $(throw 'Must provide a service name')
+    )
+    
+    $service = Get-Service | Where { $_.Name -eq "CodeAnalyser" }
+    return ($service -ne $null)
+}
+
+
+<#
+.Synopsis
 Deletes an existing service. Careful, there is no confirmation before deleting.
 #>
 function Remove-Service
