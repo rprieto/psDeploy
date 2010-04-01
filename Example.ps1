@@ -14,3 +14,5 @@ Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
 New-IIS6AppPool -Name 'Temp'
 Remove-IIS6AppPool -Name 'Temp'
 
+Expand-Zip -File "C:\Temp\package.zip" -Destination "C:\Temp\Package" -CleanDestinationFirst
+Update-Service -Name "StuffPool" -NewVersionPath "C:\Dump\1.0"
