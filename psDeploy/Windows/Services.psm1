@@ -26,7 +26,7 @@ function Remove-Service
         [string] $Name = $(throw 'Must provide a service name')
     ) 
     
-	$service = gwmi win32_service -filter "name='$Name'"
+	$service = gwmi win32_service -filter "name='$Name'" | Out-Null
 	
 	if ($service -ne $null)
 	{
