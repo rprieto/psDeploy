@@ -24,11 +24,9 @@ function Expand-Zip
         }
 
         $shell = New-Object -Com Shell.Application
-        $zippedFolder = $shell.NameSpace($File)
-        $destinationFolder = $shell.NameSpace($Destination)
         
-        $content = $zippedFolder.Items()
-        $destinationFolder.CopyHere($content)
+        $content = $shell.NameSpace($File).Items()
+        $shell.NameSpace($Destination).CopyHere($content)
         
         Write-Output "Unzipped '$File' into '$Destination'"
     }
