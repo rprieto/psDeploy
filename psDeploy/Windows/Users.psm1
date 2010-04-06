@@ -2,7 +2,7 @@
 .Synopsis
 Creates a new local user
 #>
-function New-User
+function New-LocalUser
 {
     param
     (
