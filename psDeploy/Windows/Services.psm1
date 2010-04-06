@@ -10,7 +10,7 @@ function Find-Service
         [string] $Name = $(throw 'Must provide a service name')
     )
     
-    $service = Get-Service | Where { $_.Name -eq "CodeAnalyser" }
+    $service = gwmi win32_service -filter "name='$Name'"
     return ($service -ne $null)
 }
 
@@ -26,7 +26,7 @@ function Remove-Service
         [string] $Name = $(throw 'Must provide a service name')
     ) 
     
-	$service = gwmi win32_service -filter "name='$Name'" | Out-Null
+	$service = gwmi win32_service -filter "name='$Name'"
 	
 	if ($service -ne $null)
 	{
@@ -67,7 +67,6 @@ function Set-ServiceCredentials
 		Write-Output "Could not find service '$Name' for which to change credentials"
 	}
 }
-
 
 <#
 .Synopsis
