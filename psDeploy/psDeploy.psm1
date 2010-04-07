@@ -31,7 +31,8 @@ function Initialize-PsDeploy
     param
     (
         [switch] $FailFast,
-        [string] $LogPath = $null
+        [string] $LogPath = $null,
+        [string] $LogName = (Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s.lo\g")
     ) 
 
     if ($FailFast)
@@ -43,8 +44,12 @@ function Initialize-PsDeploy
     {
         Try
         {
-            $date = Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s"
-            Start-Transcript -Path "$LogPath\$date.log"
+            if (!(Test-Path $LogPath))
+            {
+                New-Item $LogPath -type directory
+            }
+        
+            Start-Transcript -Path "$LogPath\$LogName"
         }
         Catch [System.Management.Automation.PSNotSupportedException]
         {
