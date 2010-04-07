@@ -20,7 +20,6 @@ function New-LocalUser
         $userObj = $computer.Create("User", $Name)   
     
         $userObj.Put("description", "$Name")
-        $userObj.SetInfo()
 		$userObj.SetPassword($Password)
         $userObj.SetInfo()
         $userObj.psbase.invokeset("AccountDisabled", "False")
