@@ -54,12 +54,20 @@ function Set-ServiceCredentials
         [string] $Password = $(throw "Must provide a password")
     ) 
     
+	if (!($Username.Contains("\"))
+	{
+        $Username = "$env:COMPUTERNAME\$Username"
+    }
     
     $service = gwmi win32_service -filter "name='$Name'"
-	
 	if ($service -ne $null)
 	{
-		$service.change($null, $null, $null, $null, $null, $null, $Username, $Password, $null, $null, $null) | out-null
+        $params = $service.psbase.getMethodParameters("Change");
+        $params["StartName"] = $Username
+        $params["StartPassword"] = $Password
+    
+        $service.invokeMethod("Change", $params, $null)
+
 		Write-Output "Credentials changed for service '$Name'"
 	}
 	else
