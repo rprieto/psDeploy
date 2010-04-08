@@ -64,7 +64,7 @@
 						<td> MyPool </td>
 					</tr>
 				</table>
-			<div>
+			</div>
 			
 			<div>
 				<a class="collapsible-header" href="#">+ Code sample</a>
@@ -108,38 +108,46 @@ Stop-IIS6AppPool -Name "MyPool"
 			
 			<p>Creates an application pool.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the app pool to create </td>
-					<td> MyPool </td>
-				</tr>
-				<tr>
-					<td> Username </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Identity of the app pool </td>
-					<td> PoolUser </td>
-				</tr>
-				<tr>
-					<td> Password </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Corresponding password if the user is set </td>
-					<td> Password1 </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the app pool to create </td>
+						<td> MyPool </td>
+					</tr>
+					<tr>
+						<td> Username </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Identity of the app pool </td>
+						<td> PoolUser </td>
+					</tr>
+					<tr>
+						<td> Password </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Corresponding password if the user is set </td>
+						<td> Password1 </td>
+					</tr>
+				</table>
+			</div>
 			
-			New-IIS6AppPool -Name "MyPool" -Username "Bob" -Password "Password1"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+New-IIS6AppPool -Name "MyPool" -Username "Bob" -Password "Password1"
+				</pre>
+			</div>
 			
 			<h3>Remove-IIS6AppPool</h3>
 			
@@ -148,24 +156,32 @@ Stop-IIS6AppPool -Name "MyPool"
 				<em>Note: the application pool has to be empty to be deleted.</em>
 			</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the app pool to delete </td>
-					<td> MyPool </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the app pool to delete </td>
+						<td> MyPool </td>
+					</tr>
+				</table>
+			</div>
 			
-			Remove-IIS6AppPool -Name "MyPool"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Remove-IIS6AppPool -Name "MyPool"
+				</pre>
+			</div>
 			
 		</div>
 
@@ -177,142 +193,174 @@ Stop-IIS6AppPool -Name "MyPool"
 			
 			<p>Starts an existing website.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the website to start </td>
-					<td> MySite </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the website to start </td>
+						<td> MySite </td>
+					</tr>
+				</table>
+			</div>
 			
-			Start-IIS6Website -Name "MySite"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Start-IIS6Website -Name "MySite"
+				</pre>
+			</div>
 			
 			<h3>Stop-IIS6Website</h3>
 			
 			<p>Stops an existing website.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the website to stop </td>
-					<td> MySite </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the website to stop </td>
+						<td> MySite </td>
+					</tr>
+				</table>
+			</div>
 			
-			Stop-IIS6Website -Name "MySite"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Stop-IIS6Website -Name "MySite"
+				</pre>
+			</div>
 			
 			<h3>New-IIS6Website</h3>
 			
 			<p>Creates a new website.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the website to create </td>
-					<td> MySite </td>
-				</tr>
-				<tr>
-					<td> Path </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path to the website root on disk </td>
-					<td> C:\Inetpub\MySite </td>
-				</tr>
-				<tr>
-					<td> AppPool </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the app pool that will host the website </td>
-					<td> MyPool </td>
-				</tr>
-				<tr>
-					<td> Ip </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Ip address binding </td>
-					<td> 162.10.16.4 </td>
-				</tr>
-				<tr>
-					<td> Port </td>
-					<td> integer </td>
-					<td>  </td>
-					<td> Port number to use </td>
-					<td> 1234 </td>
-				</tr>
-				<tr>
-					<td> HostHeader </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Host header to use </td>
-					<td> my.website.com </td>
-				</tr>
-				<tr>
-					<td> DefaultAccess </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Enables anonymous access to the website </td>
-					<td>  </td>
-				</tr>
-				<tr>
-					<td> DefaultDoc </td>
-					<td> string </td>
-					<td>  </td>
-					<td> List of default documents </td>
-					<td> Default.aspx  </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the website to create </td>
+						<td> MySite </td>
+					</tr>
+					<tr>
+						<td> Path </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path to the website root on disk </td>
+						<td> C:\Inetpub\MySite </td>
+					</tr>
+					<tr>
+						<td> AppPool </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the app pool that will host the website </td>
+						<td> MyPool </td>
+					</tr>
+					<tr>
+						<td> Ip </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Ip address binding </td>
+						<td> 162.10.16.4 </td>
+					</tr>
+					<tr>
+						<td> Port </td>
+						<td> integer </td>
+						<td>  </td>
+						<td> Port number to use </td>
+						<td> 1234 </td>
+					</tr>
+					<tr>
+						<td> HostHeader </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Host header to use </td>
+						<td> my.website.com </td>
+					</tr>
+					<tr>
+						<td> DefaultAccess </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Enables anonymous access to the website </td>
+						<td>  </td>
+					</tr>
+					<tr>
+						<td> DefaultDoc </td>
+						<td> string </td>
+						<td>  </td>
+						<td> List of default documents </td>
+						<td> Default.aspx  </td>
+					</tr>
+				</table>
+			</div>
 			
-			New-IIS6Website -Name "MySite" -Path "C:\Inetpub\MySite" -AppPool "MyPool" -Ip "162.10.16.4" -Port 1234 -HostHeader "my.website.com" -DefaultAccess -DefaultDoc "Default.aspx"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+New-IIS6Website -Name "MySite" -Path "C:\Inetpub\MySite" -AppPool "MyPool" -Ip "162.10.16.4" -Port 1234 -HostHeader "my.website.com" -DefaultAccess -DefaultDoc "Default.aspx"
+				</pre>
+			</div>
 			
 			<h3>Remove-IIS6Website</h3>
 			
 			<p>Deletes an existing website.</p>
+				
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the website to delete </td>
+						<td> MySite </td>
+					</tr>
+				</table>
+			</div>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the website to delete </td>
-					<td> MySite </td>
-				</tr>
-			</table>
-			
-			Remove-IIS6Website -Name "MySite"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Remove-IIS6Website -Name "MySite"
+				</pre>
+			</div>
 			
 		</div>
 		
@@ -324,68 +372,84 @@ Stop-IIS6AppPool -Name "MyPool"
 			
 			<p>Creates a new virtual directory inside a given website.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Website </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the website that will contain the virtual directory </td>
-					<td> MySite </td>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Virtual directory name </td>
-					<td> Content </td>
-				</tr>
-				<tr>
-					<td> Path </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path the directory should point to </td>
-					<td> C:\Inetpub\Content </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Website </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the website that will contain the virtual directory </td>
+						<td> MySite </td>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Virtual directory name </td>
+						<td> Content </td>
+					</tr>
+					<tr>
+						<td> Path </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path the directory should point to </td>
+						<td> C:\Inetpub\Content </td>
+					</tr>
+				</table>
+			</div>
 			
-			New-IIS6VirtualDirectory -Website "MySite" -Name "Content" -Path "C:\Inetpub\Content"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+New-IIS6VirtualDirectory -Website "MySite" -Name "Content" -Path "C:\Inetpub\Content"
+				</pre>
+			</div>
 			
 			<h3>Remove-IIS6VirtualDirectory</h3>
 			
 			<p>Deletes an existing virtual directory from a website.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Website </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the website that contains the virtual directory </td>
-					<td> MySite </td>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the virtual directory to delete </td>
-					<td> Content </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Website </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the website that contains the virtual directory </td>
+						<td> MySite </td>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the virtual directory to delete </td>
+						<td> Content </td>
+					</tr>
+				</table>
+			</div>
 			
-			Remove-IIS6VirtualDirectory -Website "MySite" -Name "Content"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Remove-IIS6VirtualDirectory -Website "MySite" -Name "Content"
+				</pre>
+			</div>
 			
 		</div>		
 	
