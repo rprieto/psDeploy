@@ -3,22 +3,83 @@
 	<head>
 		<title>psDeploy - File automation cmdlets</title>
 		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="header.css"/>
 		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
 		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
 	</head>
 	
 	<body onload="prettyPrint()">
 
-		Files
-		<ul>		
-			<li>
-				Archives
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - file automation cmdlets</h1>
+			</div>
+			<div id="header-menu">
 				<ul>
-					<li>Expand-Zip</li>
+					<li><a href="index.html" class="first">Home</a></li>
+					<li><a href="iis-6-cmdlets.html">IIS 6 cmdlets</a></li>
+					<li><a href="windows-cmdlets.html">Windows cmdlets</a></li>
+					<li><span class="current">File cmdlets</span></li>
 				</ul>
-			</li>
-		</ul>
+			</div>
+		</div>
+	
+		<p style="margin-top: 3em;">
+			This is the list of commandlets for file automation. <br />
+		</p>
+	
+		<h2>Archives</h2>
 		
+		<div class="section">
+		
+			<h3>Expand-Zip</h3>
+			
+			<p>Extracts the contents of a <span class="caps">ZIP</span> archive to the specified folder.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> File </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Path to the <span class="caps">ZIP</span> file </td>
+					<td> C:\Builds\Version1.zip </td>
+				</tr>
+				<tr>
+					<td> Destination </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Target folder to extract to </td>
+					<td> C:\Target </td>
+				</tr>
+				<tr>
+					<td> CleanDestinationFirst </td>
+					<td> switch </td>
+					<td>   </td>
+					<td> Add this switch to deleted the destination folder before extracting </td>
+					<td>  </td>
+				</tr>
+			</table>
+			
+			<div class="sample">
+				Code sample
+				<pre class="prettyprint">
+Expand-Zip -File "C:\Builds\Version1.zip" -Destination "C:\Target"
+				</pre>
+			</div>
+			
+		</div>
+			
 	</body>
 	
 </html>

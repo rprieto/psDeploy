@@ -9,6 +9,24 @@
 	
 	<body onload="prettyPrint()">
 
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - deployment automation library</h1>
+			</div>
+			<div id="header-menu">
+				<ul>
+					<li><span class="current first">Home</span></li>
+					<li><a href="iis-6-cmdlets.html">IIS 6 cmdlets</a></li>
+					<li><a href="windows-cmdlets.html">Windows cmdlets</a></li>
+					<li><a href="file-cmdlets.html">File cmdlets</a></li>
+				</ul>
+			</div>
+		</div>	
+	
 		<h1>Installing Powershell 2.0 on Windows XP SP2</h1>
 		
 		<h2>Official requirements</h2>
@@ -61,13 +79,13 @@
 				<li>
 					Modify the included <span class="console">profile.ps1</span> file to modify <ins>all</ins> the default aliases. <br />
 					Change
-					<pre class="code prettyprint">set-alias cat get-content</pre>
+					<pre class="prettyprint">set-alias cat get-content</pre>
 					Into
-					<pre class="code prettyprint">set-alias cat get-content -options allscope</pre>
+					<pre class="prettyprint">set-alias cat get-content -options allscope</pre>
 				</li>
 				<li>
 					Create a file called <span class="console">Powershell2.reg</span> with the following content:
-					<pre class="code prettyprint">
+					<pre class="prettyprint">
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell]

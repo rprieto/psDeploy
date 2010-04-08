@@ -1,42 +1,372 @@
 <html>
 
 	<head>
-		<title>psDeploy - IIS6 automation cmdlets</title>
+		<title>psDeploy - IIS 6 automation cmdlets</title>
 		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="header.css"/>
 		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
 		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
 	</head>
 	
 	<body onload="prettyPrint()">
 
-		<ul>
-			<li>
-				App pools
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - IIS 6 automation cmdlets</h1>
+			</div>
+			<div id="header-menu">
 				<ul>
-					<li>Start-IIS6AppPool</li>
-					<li>Stop-IIS6AppPool</li>
-					<li>New-IIS6AppPool</li>
-					<li>Remove-IIS6AppPool</li>
+					<li><a href="index.html" class="first">Home</a></li>
+					<li><span class="current">IIS 6 cmdlets</span></li>
+					<li><a href="windows-cmdlets.html">Windows cmdlets</a></li>
+					<li><a href="file-cmdlets.html">File cmdlets</a></li>
 				</ul>
-			</li>
-			<li>
-				Websites
-				<ul>
-					<li>Start-IIS6Website</li>
-					<li>Stop-IIS6Website</li>
-					<li>New-IIS6Website</li>
-					<li>Remove-IIS6Website</li>
-				</ul>
-			</li>
-			<li>
-				Virtual directories
-				<ul>
-					<li>New-IIS6VirtualDirectory</li>
-					<li>Remove-IIS6VirtualDirectory</li>
-				</ul>
-			</li>
-		</ul>
+			</div>
+		</div>
+
+		<p style="margin-top: 3em;">
+			IIS 7 comes with integrated Powershell cmdlets, but it's not the case for IIS 6 which is still actively used. <br />
+			Here are some IIS 6 cmdlets to automated most of the usual tasks of setting up websites. <br />
+		</p>
+	
+		<h2>Application pools</h2>
 		
+		<div class="section">
+		
+			<h3>Start-IIS6AppPool</h3>
+			
+			<p>Starts the specified application pool.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the app pool to start </td>
+					<td> MyPool </td>
+				</tr>
+			</table>
+			
+			Start-IIS6AppPool -Name "MyPool"
+			
+			<h3>Stop-IIS6AppPool</h3>
+			
+			<p>Stops the specified application pool.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the app pool to stop </td>
+					<td> MyPool </td>
+				</tr>
+			</table>
+			
+			Stop-IIS6AppPool -Name "MyPool"
+			
+			<h3>New-IIS6AppPool</h3>
+			
+			<p>Creates an application pool.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the app pool to create </td>
+					<td> MyPool </td>
+				</tr>
+				<tr>
+					<td> Username </td>
+					<td> string </td>
+					<td>  </td>
+					<td> Identity of the app pool </td>
+					<td> PoolUser </td>
+				</tr>
+				<tr>
+					<td> Password </td>
+					<td> string </td>
+					<td>  </td>
+					<td> Corresponding password if the user is set </td>
+					<td> Password1 </td>
+				</tr>
+			</table>
+			
+			New-IIS6AppPool -Name "MyPool" -Username "Bob" -Password "Password1"
+			
+			<h3>Remove-IIS6AppPool</h3>
+			
+			<p>
+				Deletes an application pool.<br />
+				<em>Note: the application pool has to be empty to be deleted.</em>
+			</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the app pool to delete </td>
+					<td> MyPool </td>
+				</tr>
+			</table>
+			
+			Remove-IIS6AppPool -Name "MyPool"
+			
+		</div>
+
+		<h2>Websites</h2>
+		
+		<div class="section">
+		
+			<h3>Start-IIS6Website</h3>
+			
+			<p>Starts an existing website.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the website to start </td>
+					<td> MySite </td>
+				</tr>
+			</table>
+			
+			Start-IIS6Website -Name "MySite"
+			
+			<h3>Stop-IIS6Website</h3>
+			
+			<p>Stops an existing website.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the website to stop </td>
+					<td> MySite </td>
+				</tr>
+			</table>
+			
+			Stop-IIS6Website -Name "MySite"
+			
+			<h3>New-IIS6Website</h3>
+			
+			<p>Creates a new website.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the website to create </td>
+					<td> MySite </td>
+				</tr>
+				<tr>
+					<td> Path </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Path to the website root on disk </td>
+					<td> C:\Inetpub\MySite </td>
+				</tr>
+				<tr>
+					<td> AppPool </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the app pool that will host the website </td>
+					<td> MyPool </td>
+				</tr>
+				<tr>
+					<td> Ip </td>
+					<td> string </td>
+					<td>  </td>
+					<td> Ip address binding </td>
+					<td> 162.10.16.4 </td>
+				</tr>
+				<tr>
+					<td> Port </td>
+					<td> integer </td>
+					<td>  </td>
+					<td> Port number to use </td>
+					<td> 1234 </td>
+				</tr>
+				<tr>
+					<td> HostHeader </td>
+					<td> string </td>
+					<td>  </td>
+					<td> Host header to use </td>
+					<td> my.website.com </td>
+				</tr>
+				<tr>
+					<td> DefaultAccess </td>
+					<td> switch </td>
+					<td>  </td>
+					<td> Enables anonymous access to the website </td>
+					<td>  </td>
+				</tr>
+				<tr>
+					<td> DefaultDoc </td>
+					<td> string </td>
+					<td>  </td>
+					<td> List of default documents </td>
+					<td> Default.aspx  </td>
+				</tr>
+			</table>
+			
+			New-IIS6Website -Name "MySite" -Path "C:\Inetpub\MySite" -AppPool "MyPool" -Ip "162.10.16.4" -Port 1234 -HostHeader "my.website.com" -DefaultAccess -DefaultDoc "Default.aspx"
+			
+			<h3>Remove-IIS6Website</h3>
+			
+			<p>Deletes an existing website.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the website to delete </td>
+					<td> MySite </td>
+				</tr>
+			</table>
+			
+			Remove-IIS6Website -Name "MySite"
+			
+		</div>
+		
+		<h2>Virtual directories</h2>
+		
+		<div class="section">
+					
+			<h3>New-IIS6VirtualDirectory</h3>
+			
+			<p>Creates a new virtual directory inside a given website.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Website </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the website that will contain the virtual directory </td>
+					<td> MySite </td>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Virtual directory name </td>
+					<td> Content </td>
+				</tr>
+				<tr>
+					<td> Path </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Path the directory should point to </td>
+					<td> C:\Inetpub\Content </td>
+				</tr>
+			</table>
+			
+			New-IIS6VirtualDirectory -Website "MySite" -Name "Content" -Path "C:\Inetpub\Content"
+			
+			<h3>Remove-IIS6VirtualDirectory</h3>
+			
+			<p>Deletes an existing virtual directory from a website.</p>
+			
+			<table>
+				<tr style="background:#ddd;">
+					<th>Name </th>
+					<th>Type </th>
+					<th>Required </th>
+					<th>Description </th>
+					<th>Example </th>
+				</tr>
+				<tr>
+					<td> Website </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the website that contains the virtual directory </td>
+					<td> MySite </td>
+				</tr>
+				<tr>
+					<td> Name </td>
+					<td> string </td>
+					<td> x </td>
+					<td> Name of the virtual directory to delete </td>
+					<td> Content </td>
+				</tr>
+			</table>
+			
+			Remove-IIS6VirtualDirectory -Website "MySite" -Name "Content"
+			
+		</div>		
 	
 	</body>
 	

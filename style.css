@@ -3,6 +3,12 @@ body
 {
 	background-color: whitesmoke;
 	margin: 3em;
+	padding: 0px;
+}
+
+#content
+{
+	/*margin: 3em;*/
 }
 
 h1
@@ -47,12 +53,24 @@ span.console
 	font-family: monospace;
 }
 
-pre.code
+pre.prettyprint
 {
 	background-color: ghostwhite;
 	border: 1px dotted gray !important;
 	padding: 1em !important;
 	padding-bottom: 0em !important;
+}
+
+div.sample
+{
+	font-style: italic;
+	margin-top: 1em;
+}
+
+div .sample pre.prettyprint
+{
+	font-style: normal;
+	margin-top: 0em !important;
 }
 
 blockquote

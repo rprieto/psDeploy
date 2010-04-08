@@ -3,6 +3,7 @@
 	<head>
 		<title>psDeploy - Powershell deployment automation library</title>
 		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="header.css"/>
 		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
 		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
 	</head>
@@ -12,15 +13,25 @@
 		<a href="http://github.com/rprieto/psDeploy">
 			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
 		</a> 
-	
-		<h1>
-			<span>psDeploy</span> - <span>deployment automation library</span>
-		</h1>
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - deployment automation library</h1>
+			</div>
+			<div id="header-menu">
+				<ul>
+					<li><span class="current first">Home</span></li>
+					<li><a href="iis-6-cmdlets.html">IIS 6 cmdlets</a></li>
+					<li><a href="windows-cmdlets.html">Windows cmdlets</a></li>
+					<li><a href="file-cmdlets.html">File cmdlets</a></li>
+				</ul>
+			</div>
+		</div>
 	
 		<h2>Introduction</h2>
 	
 		<div class="section">
-      
+	  
 			<p>
 				<strong>psDeploy</strong> is a deployment automation library for Powershell.
 				This small-footprint package provides additional cmdlets for common interaction with Windows during deployment processes.
@@ -75,7 +86,7 @@
 				<li>Add the following lines at the top of your script:</li>
 			</ol>
 
-			<pre class="code prettyprint">
+			<pre class="prettyprint">
 Import-Module psDeploy
 Assert-PsDeploySupported
 			</pre>
@@ -91,7 +102,7 @@ Assert-PsDeploySupported
 				<strong>psDeploy</strong> simply adds new cmdlets that can be used within a deployment scripts, such as:
 			</p>
 
-			<pre class="code prettyprint">
+			<pre class="prettyprint">
 Stop-IIS6AppPool -Name "MyPool"
 New-LocalUser -Name "Bob" -Password "123456"
 Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
@@ -117,7 +128,7 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 				<strong>psDeploy</strong> also comes with an initialisation commandlet, which will take care of common deployment aspects:
 			</p>
 
-			<pre class="code prettyprint">
+			<pre class="prettyprint">
 Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
 Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs" -LogName "LastDeployment.log"
 			</pre>
@@ -149,7 +160,7 @@ Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs" -LogName "LastDeploym
 			</p>
 
 		</div>
-	
+		
 	</body>
 	
 </html>
