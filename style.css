@@ -1,0 +1,64 @@
+
+body
+{
+	background-color: whitesmoke;
+	margin: 3em;
+}
+
+h1
+{
+	color: midnightblue;
+}
+
+h2
+{
+	color:orange;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid orange;
+}
+
+.section
+{
+	margin-left: 2em;
+}
+
+a
+{
+	color: #4183C4;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: hand;
+	margin: 0px;
+}
+
+img#logo
+{
+	width: 64px;
+	height: 64px;
+	vertical-align: middle;
+}
+
+span.console
+{
+	background-color: lightgray;
+	color: black;
+	border: 1px solid darkgray;
+	font-family: monospace;
+}
+
+pre.code
+{
+	background-color: ghostwhite;
+	border: 1px dotted gray !important;
+	padding: 1em !important;
+	padding-bottom: 0em !important;
+}
+
+blockquote
+{
+	background-color: ghostwhite;
+	border: 1px dotted gray;
+	padding: 1em;
+	padding-bottom: 0em;
+}

@@ -1,0 +1,126 @@
+<html>
+
+	<head>
+		<title>psDeploy - Powershell deployment automation library</title>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
+		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
+	</head>
+	
+	<body onload="prettyPrint()">
+
+		<h1>Installing Powershell 2.0 on Windows XP SP2</h1>
+		
+		<h2>Official requirements</h2>
+		
+		<div class="section">
+		
+			<p>
+				The <a href="http://support.microsoft.com/kb/968929">official Powershell 2.0 download page</a> lists the following requirements:
+			</p>
+			
+			<blockquote cite="http://support.microsoft.com/kb/968929">
+				<p>
+					WinRM 2.0 and PowerShell 2.0 can be installed on the following supported operating systems:
+					<ul>
+						<li>Windows Server 2008 with Service Pack 1</li>
+						<li>Windows Server 2008 with Service Pack 2</li>
+						<li>Windows Server 2003 with Service Pack 2</li>
+						<li>Windows Vista with Service Pack 2</li>
+						<li>Windows Vista with Service Pack 1</li>
+						<li>Windows XP with Service Pack 3</li>
+						<li>Windows Embedded POSReady 2009</li>
+						<li>Windows Embedded for Point of Service 1.1</li>
+					</ul>
+				</p>
+				<p>
+					Windows PowerShell 2.0 requires the Microsoft .NET Framework 2.0 with Service Pack 1.
+				</p>
+			</blockquote>
+		
+		</div>
+		
+		<h2>Workaround</h2>
+		
+		<div class="section">
+
+			<p>
+				However it is possible to use and install Powershell 2.0 on Windows XP SP2.
+				Simply follow the following steps in order:
+			</p>
+			
+			<ol>
+				<li>
+					Download the Windows Management Framework Core from
+					<a href="http://support.microsoft.com/kb/968929">http://support.microsoft.com/kb/968929</a>
+					(or the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=60cb5b6c-6532-45e0-ab0f-a94ae9ababf5">direct download link</a>)
+				</li>
+				<li>
+					Use <a href="http://www.7-zip.org">7-zip</a> to extract the content of the EXE file into a folder, for ex: <span class="console">C:\Powershell2.0</span>
+				</li>
+				<li>
+					Modify the included <span class="console">profile.ps1</span> file to modify <ins>all</ins> the default aliases. <br />
+					Change
+					<pre class="code prettyprint">set-alias cat get-content</pre>
+					Into
+					<pre class="code prettyprint">set-alias cat get-content -options allscope</pre>
+				</li>
+				<li>
+					Create a file called <span class="console">Powershell2.reg</span> with the following content:
+					<pre class="code prettyprint">
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1]
+"Install"=dword:00000001
+"PID"="89383-100-0001260-04309"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\1033]
+"Install"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\PowerShellEngine]
+"ApplicationBase"="C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0"
+"ConsoleHostAssemblyName"="Microsoft.PowerShell.ConsoleHost,Version=1.0.0.0,Culture=neutral,PublicKeyToken=31bf3856ad364e35,ProcessorArchitecture=msil"
+"ConsoleHostModuleName"="\"C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Microsoft.PowerShell.ConsoleHost.dll\""
+"PowerShellVersion"="2.0"
+"PSCompatibleVersion"="1.0,2.0"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\PowerShellSnapIns]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell]
+"ExecutionPolicy"="Unrestricted"
+"Path"="C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
+					</pre>
+				</li>
+				<li>
+					Modify this file to reflect the path where you installed Powershell 2.0. <br />
+					For example, replace <span class="console">C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0</span>
+					by <span class="console">C:\\Powershell2.0</span>
+				</li>
+				<li>
+					Run the <span class="console">Powershell2.reg</span> file to modify the Windows Registry.
+				</li>
+			<ol>
+			
+		</div>
+		
+		<h2>How to use it</h2>
+		
+		<div class="section">
+		
+			You should now be able to run Powershell 2.0 from the extracted location.
+			
+			<ul>
+				<li>The command line from <span class="console">C:\Powershell2.0\powershell.exe</span></li>
+				<li>The Powershell IDE from <span class="console">C:\Powershell2.0\powershell_ise.exe</span></li>
+			</ul>		
+
+		</div>
+
+	</body>
+
+</html>

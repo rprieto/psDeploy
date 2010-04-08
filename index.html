@@ -1,93 +1,155 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-	<title>psDeploy - Powershell deployment automation library</title>
+	<head>
+		<title>psDeploy - Powershell deployment automation library</title>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
+		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
+	</head>
 	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #b4cdf3;
-		  font-family: "Helvetica,Arial,FreeSans"; 
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #4b320c; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #4b320c; }
-    h3 { text-align: center; color: #4b320c; }
-    a { color: #4b320c; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
+	<body onload="prettyPrint()">
+
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
 	
-</head>
-
-<body>
-  <a href="http://github.com/rprieto/psDeploy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-  
-  <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/rprieto/psDeploy/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/rprieto/psDeploy/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+		<h1>
+			<span>psDeploy</span> - <span>deployment automation library</span>
+		</h1>
+	
+		<h2>Introduction</h2>
+	
+		<div class="section">
       
-    <h1><a href="http://github.com/rprieto/psDeploy">psDeploy</a> 
-      <span class="small">by <a href="http://github.com/rprieto">rprieto</a></span></h1>
+			<p>
+				<strong>psDeploy</strong> is a deployment automation library for Powershell.
+				This small-footprint package provides additional cmdlets for common interaction with Windows during deployment processes.
+				Adding the <strong>psDeploy</strong> module to your development / test / production servers
+				allows you to automate the teardown or setup of your environments,
+				thus limiting the need for manual configuration and documentation.
+			</p>
+			
+			<p>
+				This module adds several commandlets (cmdlets), which are grouped into main categories:
+			</p>
+			
+			<ul>
+				<li><a href="iis-6-cmdlets.html">IIS 6</a> (websites, app pools...)</li>
+				<li><a href="windows-cmdlets.html">Windows automation</a> (users, services...)</li>
+				<li><a href="file-cmdlets.html">File based operations</a> (archives...)</li>
+			</ul>
 
-    <div class="description">
-      Powershell deployment automation library (IIS 6, users, permissions, ...)
-    </div>
+		</div>
 
-    <h2>Dependencies</h2>
-<p>Some cmdlets in psDeploy use WMI or ADSI, which come out of the box in Windows 2000 and later.
+		<h2>Requirements</h2>
+		
+		<div class="section">
+		
+			<p>
+				The main requirement of <strong>psDeploy</strong> is Powershell 2.0. <br />
+				Powershell 2.0 officially requires at least the following versions of Windows:
+			</p>
 
-You can call 'Assert-PsDeploySupported' to make sure all the requirements are matched.</p>
-<h2>Install</h2>
-<p>Please refer to the installation notes in the release package.
-psDeploy is a small footprint copy-only installation.</p>
-<h2>Authors</h2>
-<p>Romain Prieto<br/><br/>      </p>
+			<ul>
+				<li>Windows XP Service Pack 3</li>
+				<li>Windows Vista Service Pack 1</li>
+				<li>Windows Server 2003 Service Pack 2</li>
+				<li>Windows Server 2008 Service Pack 1</li>
+			</ul>
+			
+			<p>
+				However, it is possible to install Powershell 2 on Windows XP SP2 by following
+				<a href="powershell-2-on-windows-xp-sp2.html">these steps</a>.
+			</p>
+			
+		</div>
+
+		<h2>How to use psDeploy</h2>
+
+		<div class="section">
+
+			<ol>
+				<li>Install Powershell 2.0 if necessary, from <a href="http://support.microsoft.com/kb/968929">http://support.microsoft.com/kb/968929</a></li>
+				<li>Go to the psDeploy <a href="http://github.com/rprieto/psDeploy/downloads">download page</a> and download the latest version</li>
+				<li>Extract the <span class="caps">ZIP</span> contents to any of the powershell module paths, which you can list with <span class="console">$env:psmodulepath</pre></li>
+				<li>Add the following lines at the top of your script:</li>
+			</ol>
+
+			<pre class="code prettyprint">
+Import-Module psDeploy
+Assert-PsDeploySupported
+			</pre>
+			
+		</div>
 
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/rprieto/psDeploy/zipball/master">zip</a> or
-      <a href="http://github.com/rprieto/psDeploy/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/rprieto/psDeploy</pre>
-    </p>
-      
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/rprieto/psDeploy">rprieto/psDeploy</a>
-    </div>
-    
-  </div>
+		<h2 style="color:orange;">Simple examples</h2>
 
-  <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-4059778-4");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-</body>
+		<div class="section">
+
+			<p>
+				<strong>psDeploy</strong> simply adds new cmdlets that can be used within a deployment scripts, such as:
+			</p>
+
+			<pre class="code prettyprint">
+Stop-IIS6AppPool -Name "MyPool"
+New-LocalUser -Name "Bob" -Password "123456"
+Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
+New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,Wed" -At 18:30
+			</pre>
+				
+			<p>The commandlets will usually have one of the following outcome:</p>
+
+			<ul>
+				<li>Be successful and print a success message, for ex. <span class="console">Created new user 'Bill'</span></li>
+				<li>Print a message if no action was taken, for ex. <span class="console">The app pool 'MyWeb' was already stopped</span></li>
+				<li>Throw an exception detailing the reason of the failure</li>
+			</ul>
+				
+		</div>
+
+
+		<h2>Logging the deployment</h2>
+		
+		<div class="section">
+				
+			<p>
+				<strong>psDeploy</strong> also comes with an initialisation commandlet, which will take care of common deployment aspects:
+			</p>
+
+			<pre class="code prettyprint">
+Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
+Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs" -LogName "LastDeployment.log"
+			</pre>
+
+			<ul>
+				<li>The <code>FailFast</code> switch makes the script fail at the first error (Powershell usually keeps going after an error)</li>
+				<li><code>LogPath</code> is a path to a folder that will contain the log of everything that happens</li>
+				<li><code>LogName</code> is the name of the log, which defaults to the current timestamp if not provided</li>
+			</ul>
+			
+			<p>
+				<strong>psDeploy</strong> uses transcripts for logging purposes,
+				which means logging will only be available when running the scripts from the <code>powershell.exe</code> host.
+				It will simply be ignored when running from Powershell <span class="caps">ISE</span>.
+			</p>
+
+		</div>
+		
+		
+		<h2>Additional notes</h2>
+		
+		<div class="section">
+		
+			<p>
+				<strong>psDeploy</strong> is still in early stages of development.
+				Unfortunately this means some cmdlet or parameter names might change occasionally.
+				However it also means that the library is constantly growing and improving!
+				Please feel free to post ideas of useful cmdlets, or to file <a href="http://github.com/rprieto/psDeploy/issues">bug reports</a>.
+			</p>
+
+		</div>
+	
+	</body>
+	
 </html>
