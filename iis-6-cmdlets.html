@@ -2,10 +2,15 @@
 
 	<head>
 		<title>psDeploy - IIS 6 automation cmdlets</title>
+		
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<link type="text/css" rel="stylesheet" href="header.css"/>
-		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
-		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
+		<link type="text/css" rel="stylesheet" href="cmdlets.css"/>
+		<link type="text/css" rel="stylesheet" href="prettify/prettify.css" />
+		
+		<script type="text/javascript" src="prettify/prettify.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="cmdlets.js"></script>
 	</head>
 	
 	<body onload="prettyPrint()">
@@ -41,47 +46,63 @@
 			
 			<p>Starts the specified application pool.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the app pool to start </td>
-					<td> MyPool </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the app pool to start </td>
+						<td> MyPool </td>
+					</tr>
+				</table>
+			<div>
 			
-			Start-IIS6AppPool -Name "MyPool"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Start-IIS6AppPool -Name "MyPool"
+				</pre>
+			</div>
 			
 			<h3>Stop-IIS6AppPool</h3>
 			
 			<p>Stops the specified application pool.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the app pool to stop </td>
-					<td> MyPool </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the app pool to stop </td>
+						<td> MyPool </td>
+					</tr>
+				</table>
+			</div>
 			
-			Stop-IIS6AppPool -Name "MyPool"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Stop-IIS6AppPool -Name "MyPool"
+				</pre>
+			</div>
 			
 			<h3>New-IIS6AppPool</h3>
 			

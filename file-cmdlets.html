@@ -2,13 +2,18 @@
 
 	<head>
 		<title>psDeploy - File automation cmdlets</title>
+		
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<link type="text/css" rel="stylesheet" href="header.css"/>
-		<link type="text/css" rel="stylesheet" href="scripts/prettify/prettify.css" />
-		<script type="text/javascript" src="scripts/prettify/prettify.js"></script>
+		<link type="text/css" rel="stylesheet" href="cmdlets.css"/>
+		<link type="text/css" rel="stylesheet" href="prettify/prettify.css" />
+		
+		<script type="text/javascript" src="prettify/prettify.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="cmdlets.js"></script>
 	</head>
 	
-	<body onload="prettyPrint()">
+	<body>
 
 		<a href="http://github.com/rprieto/psDeploy">
 			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
@@ -39,47 +44,50 @@
 			<h3>Expand-Zip</h3>
 			
 			<p>Extracts the contents of a <span class="caps">ZIP</span> archive to the specified folder.</p>
+		
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Required</th>
+						<th>Description</th>
+						<th>Example</th>
+					</tr>
+					<tr>
+						<td> File </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path to the <span class="caps">ZIP</span> file </td>
+						<td> C:\Builds\Version1.zip </td>
+					</tr>
+					<tr>
+						<td> Destination </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Target folder to extract to </td>
+						<td> C:\Target </td>
+					</tr>
+					<tr>
+						<td> CleanDestinationFirst </td>
+						<td> switch </td>
+						<td>   </td>
+						<td> Add this switch to deleted the destination folder before extracting </td>
+						<td>  </td>
+					</tr>
+				</table>
+			</div>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> File </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path to the <span class="caps">ZIP</span> file </td>
-					<td> C:\Builds\Version1.zip </td>
-				</tr>
-				<tr>
-					<td> Destination </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Target folder to extract to </td>
-					<td> C:\Target </td>
-				</tr>
-				<tr>
-					<td> CleanDestinationFirst </td>
-					<td> switch </td>
-					<td>   </td>
-					<td> Add this switch to deleted the destination folder before extracting </td>
-					<td>  </td>
-				</tr>
-			</table>
-			
-			<div class="sample">
-				Code sample
-				<pre class="prettyprint">
+			<div>
+				<a class="collapsible-header" href="#">+ Sample code</a>
+				<pre class="prettyprint collapsible">
 Expand-Zip -File "C:\Builds\Version1.zip" -Destination "C:\Target"
 				</pre>
 			</div>
 			
 		</div>
-			
+		
 	</body>
 	
 </html>

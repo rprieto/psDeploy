@@ -1,0 +1,26 @@
+
+.collapsible
+{
+	display: none;
+	margin-left: 2em;
+}
+
+table.cmdlet-parameters
+{
+	background-color: ghostwhite;
+	border: 1px dotted gray;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+table.cmdlet-parameters tr th
+{
+	background: lightgray;
+	padding: 0em 1em;
+	margin: 0px;
+}
+
+table.cmdlet-parameters tr td
+{
+	margin: 0px;
+}
