@@ -14,7 +14,8 @@
 	padding: 0em;
 	font-size: 1em;
 	font-weight: normal;
-	border: 1px solid black;
+	background-color: ghostwhite;
+	border: 1px solid gray;
 }
 
 #header-menu li
@@ -39,17 +40,21 @@
 {
 	padding: 0.2em 0.7em;
 	display: block;
-	border-left: 1px solid whitesmoke;
-	border-right: 1px solid whitesmoke;
-	margin: 1px;
+	border-left: 1px solid ghostwhite;
+	border-right: 1px solid ghostwhite;
+	margin-right: 0px;
 }
 
 #header-menu .current,
 #header-menu li a:hover
 {
 	background-image: url('images/menubackground.png');
-	border-left: 1px solid black;
-	border-right: 1px solid black;
+}
+
+#header-menu li .current
+{
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
 	color: black;
 }
 
