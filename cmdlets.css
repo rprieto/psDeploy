@@ -1,14 +1,6 @@
 
-.collapsible
-{
-	display: none;
-	margin-left: 2em;
-}
-
 table.cmdlet-parameters
 {
-	background-color: ghostwhite;
-	border: 1px dotted gray;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
@@ -23,4 +15,25 @@ table.cmdlet-parameters tr th
 table.cmdlet-parameters tr td
 {
 	margin: 0px;
+}
+
+/* Overriding the basic jQueryUI accordion theme */
+
+.ui-accordion
+{
+	font-size: 0.8em !important;
+	margin-left: 2em !important;
+}
+
+.ui-accordion-content
+{
+	overflow: hidden !important;
+}
+
+pre.code-sample
+{
+	border: none !important;
+	padding: 0em !important;
+	margin: 0em !important;
+	font-size: 1.2em;
 }

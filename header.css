@@ -48,7 +48,7 @@
 #header-menu .current,
 #header-menu li a:hover
 {
-	background-image: url('images/menubackground.png');
+	background-image: url('menubackground.png');
 }
 
 #header-menu li .current

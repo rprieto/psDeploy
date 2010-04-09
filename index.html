@@ -5,10 +5,10 @@
 		
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<link type="text/css" rel="stylesheet" href="header.css"/>
-		<link type="text/css" rel="stylesheet" href="prettify/prettify.css" />
+		<link type="text/css" rel="stylesheet" href="external/prettify/prettify.css" />
 		
-		<script type="text/javascript" src="prettify/prettify.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="external/prettify/prettify.js"></script>
+		<script type="text/javascript" src="external/jquery/jquery-1.4.2.min.js"></script>
 		<script>			
 			$(document).ready(function() {
 				prettyPrint();
@@ -95,7 +95,7 @@
 				<li>Add the following lines at the top of your script:</li>
 			</ol>
 
-			<pre class="prettyprint">
+			<pre class="prettyprint code-standalone">
 Import-Module psDeploy
 Assert-PsDeploySupported
 			</pre>
@@ -111,7 +111,7 @@ Assert-PsDeploySupported
 				<strong>psDeploy</strong> simply adds new cmdlets that can be used within a deployment scripts, such as:
 			</p>
 
-			<pre class="prettyprint">
+			<pre class="prettyprint code-standalone">
 Stop-IIS6AppPool -Name "MyPool"
 New-LocalUser -Name "Bob" -Password "123456"
 Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
@@ -137,7 +137,7 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 				<strong>psDeploy</strong> also comes with an initialisation commandlet, which will take care of common deployment aspects:
 			</p>
 
-			<pre class="prettyprint">
+			<pre class="prettyprint code-standalone">
 Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
 Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs" -LogName "LastDeployment.log"
 			</pre>

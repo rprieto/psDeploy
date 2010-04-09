@@ -6,10 +6,12 @@
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<link type="text/css" rel="stylesheet" href="header.css"/>
 		<link type="text/css" rel="stylesheet" href="cmdlets.css"/>
-		<link type="text/css" rel="stylesheet" href="prettify/prettify.css" />
+		<link type="text/css" rel="stylesheet" href="external/prettify/prettify.css" />
+		<link type="text/css" rel="stylesheet" href="external/jqueryui/css/ui-lightness/jquery-ui-1.8.custom.css" />
 		
-		<script type="text/javascript" src="prettify/prettify.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="external/prettify/prettify.js"></script>
+		<script type="text/javascript" src="external/jquery/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="external/jqueryui/js/jquery-ui-1.8.custom.min.js"></script>
 		<script type="text/javascript" src="cmdlets.js"></script>
 	</head>
 	
@@ -43,47 +45,48 @@
 		
 			<h3>Expand-Zip</h3>
 			
-			<p>Extracts the contents of a <span class="caps">ZIP</span> archive to the specified folder.</p>
-		
-			<div>
-				<a class="collapsible-header" href="#">+ Parameters</a>
-				<table class="cmdlet-parameters collapsible">
-					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Required</th>
-						<th>Description</th>
-						<th>Example</th>
-					</tr>
-					<tr>
-						<td>File</td>
-						<td>string</td>
-						<td>x</td>
-						<td>Path to the ZIP file</td>
-						<td>C:\Builds\Version1.zip</td>
-					</tr>
-					<tr>
-						<td>Destination</td>
-						<td>string</td>
-						<td>x</td>
-						<td>Target folder to extract to</td>
-						<td>C:\Target</td>
-					</tr>
-					<tr>
-						<td>CleanDestinationFirst</td>
-						<td>switch</td>
-						<td></td>
-						<td>Add this switch to deleted the destination folder before extracting</td>
-						<td></td>
-					</tr>
-				</table>
-			</div>
-			
-			<div>
-				<a class="collapsible-header" href="#">+ Sample code</a>
-				<pre class="prettyprint collapsible">
-Expand-Zip -File "C:\Builds\Version1.zip" -Destination "C:\Target"
-				</pre>
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Extracts the contents of a ZIP archive to the specified folder.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>File</td>
+							<td>string</td>
+							<td>x</td>
+							<td>Path to the ZIP file</td>
+							<td>C:\Builds\Version1.zip</td>
+						</tr>
+						<tr>
+							<td>Destination</td>
+							<td>string</td>
+							<td>x</td>
+							<td>Target folder to extract to</td>
+							<td>C:\Target</td>
+						</tr>
+						<tr>
+							<td>CleanDestinationFirst</td>
+							<td>switch</td>
+							<td></td>
+							<td>Add this switch to deleted the destination folder before extracting</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">Expand-Zip -File "C:\Builds\Version1.zip" -Destination "C:\Target"</pre>
+				</div>
 			</div>
 			
 		</div>

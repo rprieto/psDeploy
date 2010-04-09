@@ -53,24 +53,12 @@ span.console
 	font-family: monospace;
 }
 
-pre.prettyprint
+pre.code-standalone
 {
 	background-color: ghostwhite;
 	border: 1px dotted gray !important;
 	padding: 1em !important;
 	padding-bottom: 0em !important;
-}
-
-div.sample
-{
-	font-style: italic;
-	margin-top: 1em;
-}
-
-div .sample pre.prettyprint
-{
-	font-style: normal;
-	margin-top: 0em !important;
 }
 
 blockquote
