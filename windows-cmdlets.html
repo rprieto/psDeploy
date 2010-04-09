@@ -768,7 +768,12 @@ Remove-ScheduledTask -Name "MyTask"
 				</table>
 			</div>
 		
-			New-NetworkDrive -UncPath "\\Server\Folder" -DriveLetter "L"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+New-NetworkDrive -UncPath "\\Server\Folder" -DriveLetter "L"
+				</pre>
+			</div>
 		
 		</div>
 
@@ -803,11 +808,16 @@ Remove-ScheduledTask -Name "MyTask"
 				</table>
 			</div>
 			
-			Find-Service -Name "MyService"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Find-Service -Name "MyService"
+				</pre>
+			</div>
 			
 			<h3>Set-ServiceCredentials</h3>
 			
-			<p>Updates the userunder which an existing service runs.</p>
+			<p>Updates the user under which an existing service runs.</p>
 			
 			<div>
 				<a class="collapsible-header" href="#">+ Parameters</a>
@@ -843,7 +853,12 @@ Remove-ScheduledTask -Name "MyTask"
 				</table>
 			</div>
 			
-			Set-ServiceCredentials -Name "MyService" -Username "CORP\Bob" -Password "Password1"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Set-ServiceCredentials -Name "MyService" -Username "CORP\Bob" -Password "Password1"
+				</pre>
+			</div>
 			
 			<h3>Update-Service</h3>
 		
@@ -879,8 +894,13 @@ Remove-ScheduledTask -Name "MyTask"
 				</table>
 			</div>
 			
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
 Update-Service -Name "MyService" -NewVersionPath "C:\Builds\ServiceX\AFewFiles"
 Update-Service -Name "MyService" -NewVersionPath "C:\Builds\ServiceY\JustAnExe.exe"
+				</pre>
+			</div>
 		
 		</div>
 	
