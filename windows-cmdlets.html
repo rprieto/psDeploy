@@ -45,33 +45,36 @@
 			
 			<p>Creates a new local user.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the user to create </td>
-					<td> Bob </td>
-				</tr>
-				<tr>
-					<td> Password </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Associated password </td>
-					<td> Password1 </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the user to create </td>
+						<td> Bob </td>
+					</tr>
+					<tr>
+						<td> Password </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Associated password </td>
+						<td> Password1 </td>
+					</tr>
+				</table>
+			</div>
 			
-			<div class="sample">
-				Code sample
-				<pre class="prettyprint">
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
 New-LocalUser -Name "Bob" -Password "Password1"
 				</pre>
 			</div>
@@ -81,26 +84,29 @@ New-LocalUser -Name "Bob" -Password "Password1"
 			
 			<p>Deletes an existing local user.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the user to delete </td>
-					<td> Bob </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the user to delete </td>
+						<td> Bob </td>
+					</tr>
+				</table>
+			</div>
 		
-			<div class="sample">
-				Code sample
-				<pre class="prettyprint">
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
 Delete-LocalUser -Name "Bob"
 				</pre>
 			</div>
@@ -118,61 +124,77 @@ Delete-LocalUser -Name "Bob"
 				<em>Note: both the user and group have to exist.</em>
 			</p>
 
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Username </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the user to add </td>
-					<td> Bob or Domain/Bob </td>
-				</tr>
-				<tr>
-					<td> Group </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Group to add the user to </td>
-					<td> IIS_WPG </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Username </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the user to add </td>
+						<td> Bob or Domain/Bob </td>
+					</tr>
+					<tr>
+						<td> Group </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Group to add the user to </td>
+						<td> IIS_WPG </td>
+					</tr>
+				</table>
+			</div>
 			
-			Add-UserToGroup -Username "Bob" -Group "IIS_WPG"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Add-UserToGroup -Username "Bob" -Group "IIS_WPG"
+				</pre>
+			</div>
 			
 			<h3>Remove-UserFromGroup</h3>
 		
 			<p>Removes the specified user from a group.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Username </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the target user </td>
-					<td> Bill or Domain/Bill </td>
-				</tr>
-				<tr>
-					<td> Group </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Group to remove the user from </td>
-					<td> IIS_WPG </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Username </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the target user </td>
+						<td> Bill or Domain/Bill </td>
+					</tr>
+					<tr>
+						<td> Group </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Group to remove the user from </td>
+						<td> IIS_WPG </td>
+					</tr>
+				</table>
+			</div>
 		
-			Remove-UserFromGroup -Name "Bob" -Group "IIS_WPG"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Remove-UserFromGroup -Name "Bob" -Group "IIS_WPG"
+				</pre>
+			</div>
 		
 		</div>
 		
@@ -184,45 +206,53 @@ Delete-LocalUser -Name "Bob"
 		
 			<p>Sets user access permissions on a given folder.</p>
 
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Path </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Target folder </td>
-					<td> C:\My\Folder </td>
-				</tr>
-				<tr>
-					<td> Username </td>
-					<td> string </td>
-					<td> x </td>
-					<td> User to give permissions to </td>
-					<td> Bill </td>
-				</tr>
-				<tr>
-					<td> Permission </td>
-					<td> FileSystemRights </td>
-					<td> x </td>
-					<td> Type of access to grant/revoke </td>
-					<td> Read </td>
-				</tr>
-				<tr>
-					<td> Modifier </td>
-					<td> AccessControlType </td>
-					<td> x </td>
-					<td> New access value </td>
-					<td> Allow </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Path </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Target folder </td>
+						<td> C:\My\Folder </td>
+					</tr>
+					<tr>
+						<td> Username </td>
+						<td> string </td>
+						<td> x </td>
+						<td> User to give permissions to </td>
+						<td> Bill </td>
+					</tr>
+					<tr>
+						<td> Permission </td>
+						<td> FileSystemRights </td>
+						<td> x </td>
+						<td> Type of access to grant/revoke </td>
+						<td> Read </td>
+					</tr>
+					<tr>
+						<td> Modifier </td>
+						<td> AccessControlType </td>
+						<td> x </td>
+						<td> New access value </td>
+						<td> Allow </td>
+					</tr>
+				</table>
+			</div>
 			
-			Set-FolderPermissions -Path "C:\My\Folder" -Username "Bob" -Permission "Write" -Modifier "Allow"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Set-FolderPermissions -Path "C:\My\Folder" -Username "Bob" -Permission "Write" -Modifier "Allow"
+				</pre>
+			</div>
 			
 		</div>
 
@@ -234,112 +264,136 @@ Delete-LocalUser -Name "Bob"
 						
 			<p>Gets the list of all shared folders on the computer.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> MachineName </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Target machine </td>
-					<td> ComputerName </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> MachineName </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Target machine </td>
+						<td> ComputerName </td>
+					</tr>
+				</table>
+			</div>
 			
-			Get-SharedFolders
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Get-SharedFolders
+				</pre>
+			</div>
 			
 			<h3>New-SharedFolder</h3>
 			
 			<p>Creates a new share.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Path </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path to an existing folder </td>
-					<td> C:\Path\To\Folder </td>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the share </td>
-					<td> Public </td>
-				</tr>
-				<tr>
-					<td> Type </td>
-					<td> int </td>
-					<td>  </td>
-					<td> Share type </td>
-					<td> 0 </td>
-				</tr>
-				<tr>
-					<td> MaxConnectionsAllowed </td>
-					<td> int </td>
-					<td>  </td>
-					<td> Maximum number of concurrent connections </td>
-					<td> 25 </td>
-				</tr>
-				<tr>
-					<td> Description </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Share description </td>
-					<td> Public shares </td>
-				</tr>
-				<tr>
-					<td> Password </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Share password </td>
-					<td> P@ssw0rd </td>
-				</tr>
-				<tr>
-					<td> Access </td>
-					<td> Win32_SecurityDescriptor </td>
-					<td>  </td>
-					<td> Access restrictions </td>
-					<td>  </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Path </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path to an existing folder </td>
+						<td> C:\Path\To\Folder </td>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the share </td>
+						<td> Public </td>
+					</tr>
+					<tr>
+						<td> Type </td>
+						<td> int </td>
+						<td>  </td>
+						<td> Share type </td>
+						<td> 0 </td>
+					</tr>
+					<tr>
+						<td> MaxConnectionsAllowed </td>
+						<td> int </td>
+						<td>  </td>
+						<td> Maximum number of concurrent connections </td>
+						<td> 25 </td>
+					</tr>
+					<tr>
+						<td> Description </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Share description </td>
+						<td> Public shares </td>
+					</tr>
+					<tr>
+						<td> Password </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Share password </td>
+						<td> P@ssw0rd </td>
+					</tr>
+					<tr>
+						<td> Access </td>
+						<td> Win32_SecurityDescriptor </td>
+						<td>  </td>
+						<td> Access restrictions </td>
+						<td>  </td>
+					</tr>
+				</table>
+			</div>
 			
-			New-SharedFolder -Path "C:\Public" -Name "Public"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+New-SharedFolder -Path "C:\Public" -Name "Public"
+				</pre>
+			</div>
 			
 			<h3>Remove-SharedFolder</h3>
 			
 			<p>Removes the shared status of a folder.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the share to remove </td>
-					<td> Public </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the share to remove </td>
+						<td> Public </td>
+					</tr>
+				</table>
+			</div>
 			
-			Remove-SharedFolder -Name "Public"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Remove-SharedFolder -Name "Public"
+				</pre>
+			</div>
 		
 		</div>
 		
@@ -351,94 +405,126 @@ Delete-LocalUser -Name "Bob"
 			
 			<p>Find the scheduled task with the given name, and returns a full object if it exists.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Task name </td>
-					<td> MyTask </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Task name </td>
+						<td> MyTask </td>
+					</tr>
+				</table>
+			</div>
 			
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
 $task = Get-ScheduledTask -Name "MyTask"
-$task.TaskName	
+$task.TaskName
+				</pre>
+			</div>
 		
 			<h3>Start-ScheduledTask</h3>
 			
 			<p>Runs an existing scheduled task.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Task name </td>
-					<td> MyTask </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Task name </td>
+						<td> MyTask </td>
+					</tr>
+				</table>
+			</div>
 			
-			Start-ScheduledTask -Name "MyTask"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Start-ScheduledTask -Name "MyTask"
+				</pre>
+			</div>
 			
 			<h3>Enable-ScheduledTask</h3>
 			
 			<p>Enables an existing scheduled task.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Task name </td>
-					<td> MyTask </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Task name </td>
+						<td> MyTask </td>
+					</tr>
+				</table>
+			</div>
 			
-			Enable-ScheduledTask -Name "MyTask"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Enable-ScheduledTask -Name "MyTask"
+				</pre>
+			</div>
 			
 			<h3>Disable-ScheduledTask</h3>
 			
 			<p>Disable an existing scheduled task.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Task name </td>
-					<td> MyTask </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Task name </td>
+						<td> MyTask </td>
+					</tr>
+				</table>
+			</div>
 			
-			Disable-ScheduledTask -Name "MyTask"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Disable-ScheduledTask -Name "MyTask"
+				</pre>
+			</div>
 			
 			<h3>New-ScheduledTask</h3>
 			
@@ -447,187 +533,203 @@ $task.TaskName
 				Please refer to the code sample for the different schedule types.
 			</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Task name </td>
-					<td> MyTask </td>
-				</tr>
-				<tr>
-					<td> Path </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path to the program to run </td>
-					<td> MyTask </td>
-				</tr>
-				<tr>
-					<td> User </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Username to run the task under </td>
-					<td> MyTask </td>
-				</tr>
-				<tr>
-					<td> Password </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Corresponding password </td>
-					<td> MyTask </td>
-				</tr>
-				<tr>
-					<td> AtStartup </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Run the task when the computer starts </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td> WhenIdleFor </td>
-					<td> int </td>
-					<td>  </td>
-					<td> Run the task when the computer has been idle for N minutes </td>
-					<td> 10 (minutes) </td>
-				</tr>
-				<tr>
-					<td> OnceOnThe </td>
-					<td> DateTime </td>
-					<td>  </td>
-					<td> Run the task once on a specific date </td>
-					<td> &#8220;04-17-2010&#8221; (regional format depends on the computer) </td>
-				</tr>
-				<tr>
-					<td> Every </td>
-					<td> int </td>
-					<td>  </td>
-					<td> Run the task on a schedule </td>
-					<td>  </td>
-				</tr>
-				<tr>
-					<td> Minute(s) </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Run it every N minutes </td>
-					<td> 2 </td>
-				</tr>
-				<tr>
-					<td> Hour(s) </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Run it every N hours </td>
-					<td> 2 </td>
-				</tr>
-				<tr>
-					<td> Day(s) </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Run it every N days </td>
-					<td> 2 </td>
-				</tr>
-				<tr>
-					<td> Week(s) </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Run it every N weeks </td>
-					<td> 2 </td>
-				</tr>
-				<tr>
-					<td> Month(s) </td>
-					<td> switch </td>
-					<td>  </td>
-					<td> Run it every N months </td>
-					<td> 2 </td>
-				</tr>
-				<tr>
-					<td> On </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Run it on specific days </td>
-					<td> &#8220;Mon,Tue&#8221; (list of days) </td>
-				</tr>
-				<tr>
-					<td> In </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Run it on specific months </td>
-					<td> &#8220;Jan,Feb,Mar&#8221; (list of months) </td>
-				</tr>
-				<tr>
-					<td> At </td>
-					<td> DateTime </td>
-					<td>  </td>
-					<td> Time to run the task </td>
-					<td> 6pm or 18:00 (24 hour clock) </td>
-				</tr>
-				<tr>
-					<td> OnThe </td>
-					<td> int </td>
-					<td>  </td>
-					<td> Day number on which to run the task (in month mode) </td>
-					<td> 17 </td>
-				</tr>
-				<tr>
-					<td> OnTheFirst </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Run the task on the first day of the month </td>
-					<td> &#8220;Mon&#8221; (first 3 letters) </td>
-				</tr>
-				<tr>
-					<td> OnTheLast </td>
-					<td> string </td>
-					<td>  </td>
-					<td> Run the task on the last day of the month </td>
-					<td> &#8220;Mon&#8221; (first 3 letters) </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Task name </td>
+						<td> MyTask </td>
+					</tr>
+					<tr>
+						<td> Path </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path to the program to run </td>
+						<td> MyTask </td>
+					</tr>
+					<tr>
+						<td> User </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Username to run the task under </td>
+						<td> MyTask </td>
+					</tr>
+					<tr>
+						<td> Password </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Corresponding password </td>
+						<td> MyTask </td>
+					</tr>
+					<tr>
+						<td> AtStartup </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Run the task when the computer starts </td>
+						<td> </td>
+					</tr>
+					<tr>
+						<td> WhenIdleFor </td>
+						<td> int </td>
+						<td>  </td>
+						<td> Run the task when the computer has been idle for N minutes </td>
+						<td> 10 (minutes) </td>
+					</tr>
+					<tr>
+						<td> OnceOnThe </td>
+						<td> DateTime </td>
+						<td>  </td>
+						<td> Run the task once on a specific date </td>
+						<td> &#8220;04-17-2010&#8221; (regional format depends on the computer) </td>
+					</tr>
+					<tr>
+						<td> Every </td>
+						<td> int </td>
+						<td>  </td>
+						<td> Run the task on a schedule </td>
+						<td>  </td>
+					</tr>
+					<tr>
+						<td> Minute(s) </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Run it every N minutes </td>
+						<td> 2 </td>
+					</tr>
+					<tr>
+						<td> Hour(s) </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Run it every N hours </td>
+						<td> 2 </td>
+					</tr>
+					<tr>
+						<td> Day(s) </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Run it every N days </td>
+						<td> 2 </td>
+					</tr>
+					<tr>
+						<td> Week(s) </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Run it every N weeks </td>
+						<td> 2 </td>
+					</tr>
+					<tr>
+						<td> Month(s) </td>
+						<td> switch </td>
+						<td>  </td>
+						<td> Run it every N months </td>
+						<td> 2 </td>
+					</tr>
+					<tr>
+						<td> On </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Run it on specific days </td>
+						<td> &#8220;Mon,Tue&#8221; (list of days) </td>
+					</tr>
+					<tr>
+						<td> In </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Run it on specific months </td>
+						<td> &#8220;Jan,Feb,Mar&#8221; (list of months) </td>
+					</tr>
+					<tr>
+						<td> At </td>
+						<td> DateTime </td>
+						<td>  </td>
+						<td> Time to run the task </td>
+						<td> 6pm or 18:00 (24 hour clock) </td>
+					</tr>
+					<tr>
+						<td> OnThe </td>
+						<td> int </td>
+						<td>  </td>
+						<td> Day number on which to run the task (in month mode) </td>
+						<td> 17 </td>
+					</tr>
+					<tr>
+						<td> OnTheFirst </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Run the task on the first day of the month </td>
+						<td> &#8220;Mon&#8221; (first 3 letters) </td>
+					</tr>
+					<tr>
+						<td> OnTheLast </td>
+						<td> string </td>
+						<td>  </td>
+						<td> Run the task on the last day of the month </td>
+						<td> &#8220;Mon&#8221; (first 3 letters) </td>
+					</tr>
+				</table>
+			</div>
 			
-			The basic creation parameters are:
-			New-ScheduledTask -Name "MyTask" -Path "C:\Path\To.exe" -User "Username" -Password "Pass"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+The basic creation parameters are:
+New-ScheduledTask -Name "MyTask" -Path "C:\Path\To.exe" -User "Username" -Password "Pass"
 
-			They should be followed by one of the following schedule types:
-			-AtStartup
-			-WhenIdleFor 10
-			-OnceOnThe "17-04-2010"
-			-Every 1 -Minute
-			-Every 5 -Minutes
-			-Every 2 -Hours
-			-Every 10 -Days -At 9pm
-			-Every 2 -Weeks -On "Mon,Wed,Fri" -At 6pm
-			-Every 3 -Months -OnThe 17 -At 4am
-			-Every 1 -Month -In "Jan,Feb,Mar" -OnThe 17 -At 11pm
-			-Every 1 -Month -OnTheLast "Wed" -At 2am
-			
+They should be followed by one of the following schedule types:
+-AtStartup
+-WhenIdleFor 10
+-OnceOnThe "17-04-2010"
+-Every 1 -Minute
+-Every 5 -Minutes
+-Every 2 -Hours
+-Every 10 -Days -At 9pm
+-Every 2 -Weeks -On "Mon,Wed,Fri" -At 6pm
+-Every 3 -Months -OnThe 17 -At 4am
+-Every 1 -Month -In "Jan,Feb,Mar" -OnThe 17 -At 11pm
+-Every 1 -Month -OnTheLast "Wed" -At 2am
+				</pre>
+			</div>
+
 			<h3>Remove-ScheduledTask</h3>
 		
 			<p>Deletes an existing scheduled task.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the task to delete </td>
-					<td> MyTask </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the task to delete </td>
+						<td> MyTask </td>
+					</tr>
+				</table>
+			</div>
 
-			Remove-ScheduledTask -Name "MyTask"
+			<div>
+				<a class="collapsible-header" href="#">+ Code sample</a>
+				<pre class="prettyprint collapsible">
+Remove-ScheduledTask -Name "MyTask"
+				</pre>
+			</div>
 		
 		</div>
 		
@@ -639,29 +741,32 @@ $task.TaskName
 		
 			<p>Mounts a new network drive from a <span class="caps">UNC</span> path.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> UncPath </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path to mount </td>
-					<td> \\Server\Folder  </td>
-				</tr>
-				<tr>
-					<td> DriveLetter </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Letter to mount the path under </td>
-					<td> L </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> UncPath </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path to mount </td>
+						<td> \\Server\Folder  </td>
+					</tr>
+					<tr>
+						<td> DriveLetter </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Letter to mount the path under </td>
+						<td> L </td>
+					</tr>
+				</table>
+			</div>
 		
 			New-NetworkDrive -UncPath "\\Server\Folder" -DriveLetter "L"
 		
@@ -678,22 +783,25 @@ $task.TaskName
 				You can use this instead of <ins>Get-Service</ins> which returns an error message when the service does not exist.
 			</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the service to query </td>
-					<td> MyService </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the service to query </td>
+						<td> MyService </td>
+					</tr>
+				</table>
+			</div>
 			
 			Find-Service -Name "MyService"
 			
@@ -701,36 +809,39 @@ $task.TaskName
 			
 			<p>Updates the userunder which an existing service runs.</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the target service </td>
-					<td> MyService </td>
-				</tr>
-				<tr>
-					<td> Username </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Fully qualified username to run under </td>
-					<td> <span class="caps">CORP</span>\Bob </td>
-				</tr>
-				<tr>
-					<td> Password</td>
-					<td> string </td>
-					<td> x </td>
-					<td> Corresponding password </td>
-					<td> Password1 </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the target service </td>
+						<td> MyService </td>
+					</tr>
+					<tr>
+						<td> Username </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Fully qualified username to run under </td>
+						<td> <span class="caps">CORP</span>\Bob </td>
+					</tr>
+					<tr>
+						<td> Password</td>
+						<td> string </td>
+						<td> x </td>
+						<td> Corresponding password </td>
+						<td> Password1 </td>
+					</tr>
+				</table>
+			</div>
 			
 			Set-ServiceCredentials -Name "MyService" -Username "CORP\Bob" -Password "Password1"
 			
@@ -741,29 +852,32 @@ $task.TaskName
 				This will stop the service, copy the new version where the service reside, and restart the service.
 			</p>
 			
-			<table>
-				<tr style="background:#ddd;">
-					<th>Name </th>
-					<th>Type </th>
-					<th>Required </th>
-					<th>Description </th>
-					<th>Example </th>
-				</tr>
-				<tr>
-					<td> Name </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Name of the service to update </td>
-					<td> MyService </td>
-				</tr>
-				<tr>
-					<td> NewVersionPath </td>
-					<td> string </td>
-					<td> x </td>
-					<td> Path to the new executable or folder </td>
-					<td> C:\Builds\ServiceX\Version2 </td>
-				</tr>
-			</table>
+			<div>
+				<a class="collapsible-header" href="#">+ Parameters</a>
+				<table class="cmdlet-parameters collapsible">
+					<tr style="background:#ddd;">
+						<th>Name </th>
+						<th>Type </th>
+						<th>Required </th>
+						<th>Description </th>
+						<th>Example </th>
+					</tr>
+					<tr>
+						<td> Name </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Name of the service to update </td>
+						<td> MyService </td>
+					</tr>
+					<tr>
+						<td> NewVersionPath </td>
+						<td> string </td>
+						<td> x </td>
+						<td> Path to the new executable or folder </td>
+						<td> C:\Builds\ServiceX\Version2 </td>
+					</tr>
+				</table>
+			</div>
 			
 Update-Service -Name "MyService" -NewVersionPath "C:\Builds\ServiceX\AFewFiles"
 Update-Service -Name "MyService" -NewVersionPath "C:\Builds\ServiceY\JustAnExe.exe"
