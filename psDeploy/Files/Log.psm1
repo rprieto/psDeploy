@@ -12,13 +12,13 @@ function Start-Log
         [switch] $UseDate
     ) 
 
-    if ($LogPath -ne $null)
+    if ($Path -ne $null)
     {
         Try
         {
-            if (!(Test-Path $LogPath))
+            if (!(Test-Path $Path))
             {
-                New-Item $LogPath -type directory
+                New-Item $Path -type directory
             }
             
             $fileName = $Prefix
@@ -27,7 +27,7 @@ function Start-Log
                 $fileName += Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s"
             }
         
-            Start-Transcript -Path "$LogPath\$fileName.log"
+            Start-Transcript -Path "$Path\$fileName.log"
         }
         Catch [System.Management.Automation.PSNotSupportedException]
         {
