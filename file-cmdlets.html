@@ -70,14 +70,14 @@
 							<td>C:\Logs</td>
 						</tr>
 						<tr>
-							<td>Prefix</td>
+							<td>Name</td>
 							<td>string</td>
 							<td>x</td>
 							<td>Prefix used in the log file name</td>
 							<td>Install_</td>
 						</tr>
 						<tr>
-							<td>UseDate</td>
+							<td>AppendDate</td>
 							<td>switch</td>
 							<td></td>
 							<td>If this switch is specified, the current timestamp will be added to the file prefix.
@@ -88,7 +88,7 @@
 				</div>
 				<h4><a href="#">Code sample</a></h4>
 				<div>
-					<pre class="prettyprint code-sample">Start-Log -Path "C:\DeploymentLogs" -Prefix "Install_" -UseDate</pre>
+					<pre class="prettyprint code-sample">Start-Log -Path "C:\Logs" -Name "AppX_Deployment_" -AppendDate</pre>
 				</div>
 			</div>
 		

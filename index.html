@@ -148,6 +148,17 @@ Trap [Exception]
 				Another common need during deployments is to log everything that happens during the process. <br />
 				The <a href="file-cmdlets.html">Files</a> section of <strong>psDeploy</strong> contains a <span class="console">Start-Log</span> cmdlet
 				which captures the whole output to a file that can be analysed later.
+				<pre class="prettyprint code-standalone">
+Start-Log -Path "C:\Logs" -Name "AppX_Deployment_" -AppendDate
+				</pre>
+			</p>
+			
+			<p>
+				Finally, it is recommended to add the following line to the top of any deployment script. <br />
+				This will validate the script's syntax and catch typos, undeclared variables, non-existent properties...
+				<pre class="prettyprint code-standalone">
+Set-StrictMode -Version 2.0
+				</pre>
 			</p>
 
 		</div>
