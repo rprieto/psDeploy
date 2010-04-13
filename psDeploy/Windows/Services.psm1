@@ -54,7 +54,7 @@ function Set-ServiceCredentials
         [string] $Password = $(throw "Must provide a password")
     ) 
     
-	if (!($Username.Contains("\"))
+	if (!($Username.Contains("\")))
 	{
         $Username = "$env:COMPUTERNAME\$Username"
     }
