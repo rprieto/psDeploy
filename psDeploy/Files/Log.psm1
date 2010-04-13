@@ -7,9 +7,9 @@ function Start-Log
 {
     param
     (
-        [string] $Path = $null,
-        [string] $Prefix = "Deployment",
-        [switch] $UseDate
+        [string] $Path = $(throw 'Must provide the log folder path'),
+        [string] $Name = $(throw 'Must provide the file name or prefix'),
+        [switch] $AppendDate
     ) 
 
     if ($Path -ne $null)
@@ -21,8 +21,8 @@ function Start-Log
                 New-Item $Path -type directory
             }
             
-            $fileName = $Prefix
-            if ($UseDate)
+            $fileName = $Name
+            if ($AppendDate)
             {
                 $fileName += Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s"
             }
