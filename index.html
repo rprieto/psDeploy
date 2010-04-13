@@ -92,12 +92,10 @@
 				<li>Install Powershell 2.0 if necessary, from <a href="http://support.microsoft.com/kb/968929">http://support.microsoft.com/kb/968929</a></li>
 				<li>Go to the psDeploy <a href="http://github.com/rprieto/psDeploy/downloads">download page</a> and download the latest version</li>
 				<li>Extract the <span class="caps">ZIP</span> contents to any of the powershell module paths, which you can list with <span class="console">$env:psmodulepath</pre></li>
-				<li>Add the following lines at the top of your script:</li>
+				<li>Add the following line at the top of your script:</li>
 			</ol>
 
-			<pre class="prettyprint code-standalone">
-Import-Module psDeploy
-Assert-PsDeploySupported
+			<pre class="prettyprint code-standalone">Import-Module psDeploy
 			</pre>
 			
 		</div>
