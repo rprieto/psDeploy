@@ -129,29 +129,27 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 		</div>
 
 
-		<h2>Logging the deployment</h2>
+		<h2>Common deployment aspects</h2>
 		
 		<div class="section">
-				
-			<p>
-				<strong>psDeploy</strong> also comes with an initialisation commandlet, which will take care of common deployment aspects:
-			</p>
-
-			<pre class="prettyprint code-standalone">
-Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
-Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs" -LogName "LastDeployment.log"
-			</pre>
-
-			<ul>
-				<li>The <code>FailFast</code> switch makes the script fail at the first error (Powershell usually keeps going after an error)</li>
-				<li><code>LogPath</code> is a path to a folder that will contain the log of everything that happens</li>
-				<li><code>LogName</code> is the name of the log, which defaults to the current timestamp if not provided</li>
-			</ul>
 			
 			<p>
-				<strong>psDeploy</strong> uses transcripts for logging purposes,
-				which means logging will only be available when running the scripts from the <code>powershell.exe</code> host.
-				It will simply be ignored when running from Powershell <span class="caps">ISE</span>.
+				The default behaviour in Powershell is to keep going after an error occurs.
+				Adding the following lines to the top of the deployment script should ensure that the deployment stops at the first failure:
+				<pre class="prettyprint code-standalone">
+$ErrorActionPreference = 'Stop'
+Trap [Exception]
+{
+    Write-Warning "The deployment failed"
+    break
+}
+				</pre>
+			</p>
+			
+			<p>
+				Another common need during deployments is to log everything that happens during the process. <br />
+				The <a href="file-cmdlets.html">Files</a> section of <strong>psDeploy</strong> contains a <span class="console">Start-Log</span> cmdlet
+				which captures the whole output to a file that can be analysed later.
 			</p>
 
 		</div>

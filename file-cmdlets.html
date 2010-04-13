@@ -43,6 +43,55 @@
 		
 		<div class="section">
 		
+			<h3>Start-Log</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Starts a new log that records any output from the deployment process. <br />
+					Note: this uses transcripts, which means it is only be available when running the scripts from the <em>powershell.exe</em> host. <br />
+					It will simply be ignored when running from <em>Powershell ISE</em>.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Path</td>
+							<td>string</td>
+							<td>x</td>
+							<td>Folder where the new log file will be created</td>
+							<td>C:\Logs</td>
+						</tr>
+						<tr>
+							<td>Prefix</td>
+							<td>string</td>
+							<td>x</td>
+							<td>Prefix used in the log file name</td>
+							<td>Install_</td>
+						</tr>
+						<tr>
+							<td>UseDate</td>
+							<td>switch</td>
+							<td></td>
+							<td>If this switch is specified, the current timestamp will be added to the file prefix.
+							Otherwise, the prefix becomes the whole name, and the log will overwrite the same file each time.</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">Start-Log -Path "C:\DeploymentLogs" -Prefix "Install_" -UseDate</pre>
+				</div>
+			</div>
+		
 			<h3>Expand-Zip</h3>
 			
 			<div class="accordion">
