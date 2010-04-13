@@ -2,14 +2,22 @@
 # Deployment init
 #
 
-Import-Module psDeploy
-#Import-Module -Name "C:\Romain\github\psDeploy\psDeploy\psDeploy.psm1" -Force 
-Assert-PsDeploySupported
-Initialize-PsDeploy -FailFast -LogPath "C:\DeploymentLogs"
+$ErrorActionPreference = 'Stop'
+Trap [Exception]
+{
+    Write-Warning "The deployment failed"
+    break
+}
+
+#Import-Module psDeploy
+Import-Module -Name "C:\Romain\github\psDeploy\master\psDeploy\psDeploy.psm1" -Force 
+
 
 #
 # Deployment steps
 #
+
+Start-Log -Path "C:\DeploymentLogs" -Prefix "Install_" -UseDate
 
 New-IIS6AppPool -Name 'Temp'
 Remove-IIS6AppPool -Name 'Temp'
