@@ -22,7 +22,7 @@ function Start-IIS6AppPool
     }
     else
     {
-        Write-Output "Could not find application pool '$Name' to start"
+        Write-Warning "Could not find application pool '$Name' to start"
     }
 }
 
