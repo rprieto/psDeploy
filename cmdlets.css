@@ -1,19 +1,17 @@
 
 table.cmdlet-parameters
 {
+	font-size: 1em;
 	margin-top: 1em;
 	margin-bottom: 1em;
+	border-collapse: collapse;
 }
 
-table.cmdlet-parameters tr th
+table.cmdlet-parameters th, table.cmdlet-parameters td
 {
-	background: lightgray;
+	background-color: ghostwhite;
+	border: 1px solid gray;
 	padding: 0em 1em;
-	margin: 0px;
-}
-
-table.cmdlet-parameters tr td
-{
 	margin: 0px;
 }
 
