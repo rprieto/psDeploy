@@ -139,7 +139,7 @@ $ErrorActionPreference = 'Stop'
 Trap [Exception]
 {
     Write-Warning "The deployment failed"
-	$Error | Write-Error
+    $Error | Write-Error
     break
 }
 				</pre>
