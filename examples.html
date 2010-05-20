@@ -70,14 +70,13 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 				
 		</div>
 
-
 		<h2>Common aspects</h2>
 		
 		<div class="section">
 			
 			<p>
 				The default behaviour in Powershell is to keep going after an error occurs. <br />
-				There are a few "guard" commands that we can include to make the script stop after the first error.
+				Many deployment script will be configured to stop after the first error.
 			</p>
 			
 			<p>
@@ -101,26 +100,28 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 				All the aspects listed above are demonstrated in the following script, which can be used a template for every new deployment script:
 			
 				<pre class="prettyprint code-standalone">
-# Standard guards 
-Set-StrictMode -Version 2.0 
+Set-StrictMode -Version 2
 $ErrorActionPreference = 'Stop' 
-Trap [Exception] 
-{ 
-    Write-DeploymentFailure 'My app name' 
-    break 
+
+try
+{
+    # Third party modules
+    Import-Module psDeploy
+
+    # The actual install 
+    Start-Log -Name 'MyApp_' -AppendDate 
+    ...
+    ...
+    ...
+
+    # Finished!
+    Write-DeploymentSuccess 'My app name'
 }
-
-# Third party modules
-Import-Module psDeploy
-
-# The actual install 
-Start-Log -Name 'MyApp_' -AppendDate 
-...
-...
-...
-
-# Finished!
-Write-DeploymentSuccess 'My app name'
+catch
+{
+    $_ | Write-Warning
+    Write-DeploymentFailure 'My app name' 
+}
 				</pre>
 			</p>
 			
