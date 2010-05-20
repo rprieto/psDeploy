@@ -1,27 +1,20 @@
-#
-# Deployment init
-#
-
-$ErrorActionPreference = 'Stop'
-Trap [Exception]
-{
-    Write-Warning "The deployment failed"
-    break
+# Standard guards 
+Set-StrictMode -Version 2.0 
+$ErrorActionPreference = 'Stop' 
+Trap [Exception] 
+{ 
+    Write-DeploymentFailure 'My app name' 
+    break 
 }
 
-#Import-Module psDeploy
-Import-Module -Name "C:\Romain\github\psDeploy\master\psDeploy\psDeploy.psm1" -Force 
-Set-StrictMode -Version 2.0
+# Load modules 
+Set-Location (Split-Path $MyInvocation.MyCommand.Path) 
+Import-Module .\psDeploy\psDeploy.psm1
 
-
-#
-# Deployment steps
-#
-
-Start-Log -Path "C:\DeploymentLogs" -Name "Install_" -AppendDate
-
+# The actual install 
+Start-Log -Name 'MyApp_' -AppendDate 
 New-IIS6AppPool -Name 'Temp'
 Remove-IIS6AppPool -Name 'Temp'
 
-Expand-Zip -File "C:\Temp\package.zip" -Destination "C:\Temp\Package" -CleanDestinationFirst
-Update-Service -Name "StuffPool" -NewVersionPath "C:\Dump\1.0"
+# Finished!
+Write-DeploymentSuccess 'My app name'

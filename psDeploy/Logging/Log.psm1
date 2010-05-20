@@ -1,3 +1,8 @@
+<#
+    Default log folder for all logging cmdlets
+#>
+$defaultLogFolder = 'C:\Logs'
+
 
 <#
 .Synopsis
@@ -7,8 +12,8 @@ function Start-Log
 {
     param
     (
-        [string] $Path = $(throw 'Must provide the log folder path'),
         [string] $Name = $(throw 'Must provide the file name or prefix'),
+        [string] $Path = $defaultLogFolder,
         [switch] $AppendDate
     ) 
 
@@ -46,7 +51,7 @@ function Write-DeploymentSuccess
     param 
     ( 
         [string] $Application = $(throw 'Must specify the application name'), 
-        [string] $LogFile = 'C:\Logs\Deployments.txt' 
+        [string] $LogFile = "$defaultLogFolder\Deployments.txt"
     )
 
         $message = " 
@@ -71,7 +76,7 @@ function Write-DeploymentFailure
     param 
     ( 
         [string] $Application = $(throw 'Must specify the application name'), 
-        [string] $LogFile = 'C:\Logs\Deployments.txt' 
+        [string] $LogFile = "$defaultLogFolder\Deployments.txt"
     )
 
         $message = " 
