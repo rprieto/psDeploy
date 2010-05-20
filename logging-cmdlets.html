@@ -1,0 +1,188 @@
+<html>
+
+	<head>
+		<title>psDeploy - File automation cmdlets</title>
+		
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="header.css"/>
+		<link type="text/css" rel="stylesheet" href="cmdlets.css"/>
+		<link type="text/css" rel="stylesheet" href="external/prettify/prettify.css" />
+		<link type="text/css" rel="stylesheet" href="external/jqueryui/css/ui-lightness/jquery-ui-1.8.custom.css" />
+		
+		<script type="text/javascript" src="external/prettify/prettify.js"></script>
+		<script type="text/javascript" src="external/jquery/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="external/jqueryui/js/jquery-ui-1.8.custom.min.js"></script>
+		<script type="text/javascript" src="cmdlets.js"></script>
+	</head>
+	
+	<body>
+
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - file automation cmdlets</h1>
+			</div>
+			<div id="header-menu">
+				<ul>
+					<li><a href="index.html" class="first">Home</a></li>
+					<li><a href="iis-6-cmdlets.html">IIS 6 cmdlets</a></li>
+					<li><a href="windows-cmdlets.html">Windows cmdlets</a></li>
+					<li><a href="file-cmdlets.html">File cmdlets</a></li>
+					<li><span class="current">Logging cmdlets</span></li>
+				</ul>
+			</div>
+		</div>
+	
+		<p style="margin-top: 3em;">
+			This is the list of commandlets used to simplify logging of the deployment. <br />
+		</p>
+	
+		<h2>Logging</h2>
+		
+		<div class="section">
+
+			<h3>Start-Log</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Starts a new log that records any output from the deployment process. <br />
+					Note: this uses transcripts, which means it is only be available when running the scripts from the <em>powershell.exe</em> host. <br />
+					It will simply be ignored when running from <em>Powershell ISE</em>.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Path</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Folder where the new log file will be created</td>
+							<td>C:\Logs</td>
+						</tr>
+						<tr>
+							<td>Name</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Prefix used in the log file name</td>
+							<td>Install_</td>
+						</tr>
+						<tr>
+							<td>AppendDate</td>
+							<td>switch</td>
+							<td></td>
+							<td>If this switch is specified, the current timestamp will be added to the file prefix.
+							Otherwise, the prefix becomes the whole name, and the log will overwrite the same file each time.</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">Start-Log -Path "C:\Logs" -Name "AppX_Deployment_" -AppendDate</pre>
+				</div>
+			</div>
+		
+			<h3>Write-DeploymentSuccess</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Writes a deployment success message to both the console and a global log file. <br />
+					The message contains information such as the script name, the date...<br />
+					You can use this cmdlet to log a non detailled entry for every deployment that happens on the target machine.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Application</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Name of the application being deployed</td>
+							<td>MyComponent</td>
+						</tr>
+						<tr>
+							<td>LogFile</td>
+							<td>string</td>
+							<td></td>
+							<td>Path to the log file</td>
+							<td>C:\Logs\DeploymentsSummary.txt</td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">Write-DeploymentSuccess -Application "MyComponent"</pre>
+				</div>
+			</div>
+			
+			<h3>Write-DeploymentFailure</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Writes a deployment failure message to both the console and a global log file. <br />
+					The message contains information such as the script name, the date...<br />
+					You can use this cmdlet to log a non detailled entry for every deployment that happens on the target machine.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Application</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Name of the application being deployed</td>
+							<td>MyComponent</td>
+						</tr>
+						<tr>
+							<td>LogFile</td>
+							<td>string</td>
+							<td></td>
+							<td>Path to the log file</td>
+							<td>C:\Logs\DeploymentsSummary.txt</td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">$ErrorActionPreference = 'Stop'
+Trap [Exception]
+{
+	Write-DeploymentFailure 'MyComponent'
+	break
+}</pre>
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+	
+</html>
+
