@@ -3,16 +3,15 @@ $ErrorActionPreference = 'Stop'
 
 try
 {
-    # Load modules 
     Set-Location (Split-Path $MyInvocation.MyCommand.Path) 
     Import-Module .\psDeploy\psDeploy.psm1
 
-    # The actual install 
     Start-Log -Name 'MyApp_' -AppendDate 
     
-    #Stop-Service -DisplayName "Event log"    
+    #
+    # Insert deployment steps here
+    #
 
-    # Finished!
     Write-DeploymentSuccess 'My app name'
 }
 catch
