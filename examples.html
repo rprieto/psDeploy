@@ -105,16 +105,13 @@ $ErrorActionPreference = 'Stop'
 
 try
 {
-    # Third party modules
     Import-Module psDeploy
-
-    # The actual install 
     Start-Log -Name 'MyApp_' -AppendDate 
-    ...
-    ...
-    ...
+	
+    #
+    # insert deployment steps here
+    #
 
-    # Finished!
     Write-DeploymentSuccess 'My app name'
 }
 catch
