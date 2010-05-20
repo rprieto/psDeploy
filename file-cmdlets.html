@@ -40,6 +40,83 @@
 			This is the list of commandlets for file automation. <br />
 		</p>
 	
+		<h2>Folder operations</h2>
+	
+			<h3>Clear-FolderContents</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Cleans the specified folder if it exists. <br />
+					This removes any existing content but preserves the actual folder.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Path</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Path to the folder to clean</td>
+							<td>C:\Target\Folder</td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">Clear-FolderContents -Path "C:\Target\Folder"</pre>
+				</div>
+			</div>	
+
+			<h3>New-Backup</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Creates a backup of the specified folder if it exists.<br />
+					The backup is created as a subfolder of the destination, using the current date as part of the folder name. <br />
+					This cmdlet does not do anything if the source folder does not exist.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Source</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Path to the folder to backup</td>
+							<td>C:\Target\MyApplication</td>
+						</tr>
+						<tr>
+							<td>Destination</td>
+							<td>string</td>
+							<td><img src="tick.png" /></td>
+							<td>Folder that will contain the backup</td>
+							<td>C:\Backups</td>
+						</tr>					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">New-Backup -Source "C:\Target\MyApplication" -Destination "C:\Backups"</pre>
+				</div>
+			</div>	
+			
+		</div>
+	
 		<h2>Archives</h2>
 		
 		<div class="section">
