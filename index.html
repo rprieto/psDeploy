@@ -138,8 +138,7 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 $ErrorActionPreference = 'Stop'
 Trap [Exception]
 {
-    Write-Warning "The deployment failed"
-    $Error | Write-Error
+    Write-DeploymentFailure 'MyApp'
     break
 }
 				</pre>
