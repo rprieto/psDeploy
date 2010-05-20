@@ -58,7 +58,8 @@
 			<ul>
 				<li><a href="iis-6-cmdlets.html">IIS 6</a> (websites, app pools...)</li>
 				<li><a href="windows-cmdlets.html">Windows automation</a> (users, services...)</li>
-				<li><a href="file-cmdlets.html">File based operations</a> (archives...)</li>
+				<li><a href="file-cmdlets.html">File based operations</a> (zip files, backups...)</li>
+				<li><a href="logging-cmdlets.html">Logging operations</a> (deployment history...)</li>
 			</ul>
 
 		</div>
@@ -135,36 +136,48 @@ New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,We
 			
 			<p>
 				The default behaviour in Powershell is to keep going after an error occurs.
-				Adding the following lines to the top of the deployment script should ensure that the deployment stops at the first failure:
+				There are a few "guard" commands that we can include to make the script stop after the first error.
+			</p>
+			
+			<p>
+				Another common need during deployments is to log everything that happens during the process.
+				<strong>psDeploy</strong> can help maintain a journal of all the script that have been run on a specific machine,
+				a well as detailled logs of each individual deployment.
+			</p>
+			
+			<p>
+				Finally, it is recommended to use Powershell's <a href="http://www.microsoft.com/technet/scriptcenter/topics/winpsh/strictmode.mspx">strict mode</a>, which validates the script's syntax
+				and catches errors such as typos, undeclared variables and non-existent properties.
+			</p>
+			
+			<p>
+				All these aspects are demonstrated in the following script, which can be used a template for every new deployment script:
+			
 				<pre class="prettyprint code-standalone">
-$ErrorActionPreference = 'Stop'
-Trap [Exception]
-{
-    Write-DeploymentFailure 'MyApp'
-    break
+# Standard guards 
+Set-StrictMode -Version 2.0 
+$ErrorActionPreference = 'Stop' 
+Trap [Exception] 
+{ 
+    Write-DeploymentFailure 'My app name' 
+    break 
 }
-				</pre>
-			</p>
-			
-			<p>
-				Another common need during deployments is to log everything that happens during the process. <br />
-				The <a href="logging-cmdlets.html">Logging</a> section of <strong>psDeploy</strong> contains a <em>Start-Log</em> cmdlet
-				which captures the whole output to a file that can be analysed later.
-				<pre class="prettyprint code-standalone">
-Start-Log -Path "C:\Logs" -Name "AppX_Deployment_" -AppendDate
-				</pre>
-			</p>
-			
-			<p>
-				Finally, it is recommended to add the following line to the top of any deployment script. <br />
-				This will validate the script's syntax and catch typos, undeclared variables, non-existent properties...
-				<pre class="prettyprint code-standalone">
-Set-StrictMode -Version 2.0
-				</pre>
-			</p>
 
+# Load modules
+Import-Module psDeploy
+
+# The actual install 
+Start-Log -Name 'MyApp_' -AppendDate 
+...
+...
+...
+
+# Finished!
+Write-DeploymentSuccess 'My app name'
+				</pre>
+			</p>
+			
 		</div>
-		
 		
 		<h2>Additional notes</h2>
 		

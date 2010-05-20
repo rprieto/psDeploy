@@ -65,13 +65,6 @@
 							<th>Example</th>
 						</tr>
 						<tr>
-							<td>Path</td>
-							<td>string</td>
-							<td><img src="tick.png" /></td>
-							<td>Folder where the new log file will be created</td>
-							<td>C:\Logs</td>
-						</tr>
-						<tr>
 							<td>Name</td>
 							<td>string</td>
 							<td><img src="tick.png" /></td>
@@ -79,18 +72,25 @@
 							<td>Install_</td>
 						</tr>
 						<tr>
+							<td>Path</td>
+							<td>string</td>
+							<td></td>
+							<td>Folder where the new log file will be created. Default is C:\Logs</td>
+							<td>C:\Logs</td>
+						</tr>
+						<tr>
 							<td>AppendDate</td>
 							<td>switch</td>
 							<td></td>
-							<td>If this switch is specified, the current timestamp will be added to the file prefix.
-							Otherwise, the prefix becomes the whole name, and the log will overwrite the same file each time.</td>
+							<td>If this switch is specified, the current timestamp will be added to the file name.
+							If not specified, the cmdlet will use the same file name each time the script is run, and overwrite the previous log.</td>
 							<td></td>
 						</tr>
 					</table>
 				</div>
 				<h4><a href="#">Code sample</a></h4>
 				<div>
-					<pre class="prettyprint code-sample">Start-Log -Path "C:\Logs" -Name "AppX_Deployment_" -AppendDate</pre>
+					<pre class="prettyprint code-sample">Start-Log -Name "AppX_Deployment_" -AppendDate</pre>
 				</div>
 			</div>
 		
@@ -124,8 +124,8 @@
 							<td>LogFile</td>
 							<td>string</td>
 							<td></td>
-							<td>Path to the log file</td>
-							<td>C:\Logs\DeploymentsSummary.txt</td>
+							<td>Path to the log file. Default is C:\Logs\Deployments.txt</td>
+							<td>C:\Logs\Deployments.txt</td>
 						</tr>
 					</table>
 				</div>
@@ -165,8 +165,8 @@
 							<td>LogFile</td>
 							<td>string</td>
 							<td></td>
-							<td>Path to the log file</td>
-							<td>C:\Logs\DeploymentsSummary.txt</td>
+							<td>Path to the log file. Default is C:\Logs\Deployments.txt</td>
+							<td>C:\Logs\Deployments.txt</td>
 						</tr>
 					</table>
 				</div>
