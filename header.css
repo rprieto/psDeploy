@@ -18,6 +18,16 @@
 	border: 1px solid gray;
 }
 
+#header-menu #top
+{
+	border-bottom: none;
+}
+
+#header-menu #bottom
+{
+	border-top: none;
+}
+
 #header-menu li
 {
 	display: table-cell;
@@ -28,11 +38,16 @@
 	font-weight: bold;
 }
 
+#header-menu li.title
+{
+	width: 4.5em;
+	padding-left: 5px;
+}
+
 #header-menu li a
 {
 	cursor: hand;
 	text-decoration: none;
-	color: #4183C4;
 }
 
 #header-menu .current,
@@ -43,6 +58,7 @@
 	border-left: 1px solid ghostwhite;
 	border-right: 1px solid ghostwhite;
 	margin-right: 0px;
+	color: #4183C4;
 }
 
 #header-menu .current,
@@ -51,15 +67,7 @@
 	background-image: url('menubackground.png');
 }
 
-#header-menu li .current
-{
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
-	color: black;
-}
-
 #header-menu .first
 {
 	border-left: 0px !important;
 }
-
