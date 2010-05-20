@@ -1,0 +1,131 @@
+<html>
+
+	<head>
+		<title>psDeploy - Powershell deployment automation library</title>
+		<meta name="description" content="Powershell library to automate common deployment aspects and simplify your deployment scripts (Windows operations, IIS, logging...)." />
+		
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="header.css"/>
+		<link type="text/css" rel="stylesheet" href="external/prettify/prettify.css" />
+		
+		<script type="text/javascript" src="external/prettify/prettify.js"></script>
+		<script type="text/javascript" src="external/jquery/jquery-1.4.2.min.js"></script>
+		<script>			
+			$(document).ready(function() {
+				prettyPrint();
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - deployment automation library</h1>
+			</div>
+			<div id="header-menu">
+				<ul id="top">
+					<li class="title">Home</li>
+					<li><a href="index.html">Introduction</a></li>
+					<li><span class="current">Examples</span></li>
+					<li><a href="powershell-2-on-windows-xp-sp2.html">Windows XP</a></li>
+				</ul>
+				<ul id="bottom">
+					<li class="title">Cmdlets</li>
+					<li><a href="iis-6-cmdlets.html">IIS 6</a></li>
+					<li><a href="windows-cmdlets.html">Windows</a></li>
+					<li><a href="file-cmdlets.html">Files and folders</a></li>
+					<li><a href="logging-cmdlets.html">Logging</a></li>
+				</ul>
+			</div>
+		</div>
+	
+		<h2>Simple examples</h2>
+
+		<div class="section">
+
+			<p>
+				<strong>psDeploy</strong> simply adds new cmdlets that can be used within a deployment scripts, such as:
+			</p>
+
+			<pre class="prettyprint code-standalone">
+Stop-IIS6AppPool -Name "MyPool"
+New-LocalUser -Name "Bob" -Password "123456"
+Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
+New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,Wed" -At 18:30
+			</pre>
+				
+			<p>The commandlets will usually have one of the following outcome:</p>
+
+			<ul>
+				<li>Be successful and print a success message, for ex. <span class="console">Created new user 'Bill'</span></li>
+				<li>Print a message if no action was taken, for ex. <span class="console">The app pool 'MyWeb' was already stopped</span></li>
+				<li>Throw an exception detailing the reason of the failure</li>
+			</ul>
+				
+		</div>
+
+
+		<h2>Common aspects</h2>
+		
+		<div class="section">
+			
+			<p>
+				The default behaviour in Powershell is to keep going after an error occurs. <br />
+				There are a few "guard" commands that we can include to make the script stop after the first error.
+			</p>
+			
+			<p>
+				Another common need during deployments is to log everything that happens during the process. <br />
+				<strong>psDeploy</strong> can help maintain a journal of all the script that have been run on a specific machine,
+				a well as detailled logs of each individual deployment.
+			</p>
+			
+			<p>
+				Finally, it is recommended to use Powershell's <a href="http://www.microsoft.com/technet/scriptcenter/topics/winpsh/strictmode.mspx">strict mode</a>, which validates the script's syntax
+				and catches errors such as typos, undeclared variables and non-existent properties.
+			</p>
+			
+		</div>
+		
+		<h2>Simple template</h2>
+
+		<div class="section">
+		
+			<p>
+				All the aspects listed above are demonstrated in the following script, which can be used a template for every new deployment script:
+			
+				<pre class="prettyprint code-standalone">
+# Standard guards 
+Set-StrictMode -Version 2.0 
+$ErrorActionPreference = 'Stop' 
+Trap [Exception] 
+{ 
+    Write-DeploymentFailure 'My app name' 
+    break 
+}
+
+# Third party modules
+Import-Module psDeploy
+
+# The actual install 
+Start-Log -Name 'MyApp_' -AppendDate 
+...
+...
+...
+
+# Finished!
+Write-DeploymentSuccess 'My app name'
+				</pre>
+			</p>
+			
+		</div>
+		
+	</body>
+	
+</html>

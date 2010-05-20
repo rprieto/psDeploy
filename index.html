@@ -33,7 +33,7 @@
 					<li class="title">Home</li>
 					<li><span class="current">Introduction</span></li>
 					<li><a href="examples.html">Examples</a></li>
-					<li><a href="windows-xp.html">Windows XP</a></li>
+					<li><a href="powershell-2-on-windows-xp-sp2.html">Windows XP</a></li>
 				</ul>
 				<ul id="bottom">
 					<li class="title">Cmdlets</li>
@@ -107,84 +107,12 @@
 			<pre class="prettyprint code-standalone">Import-Module psDeploy
 			</pre>
 			
-		</div>
-
-
-		<h2 style="color:orange;">Simple examples</h2>
-
-		<div class="section">
-
 			<p>
-				<strong>psDeploy</strong> simply adds new cmdlets that can be used within a deployment scripts, such as:
-			</p>
-
-			<pre class="prettyprint code-standalone">
-Stop-IIS6AppPool -Name "MyPool"
-New-LocalUser -Name "Bob" -Password "123456"
-Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
-New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,Wed" -At 18:30
-			</pre>
-				
-			<p>The commandlets will usually have one of the following outcome:</p>
-
-			<ul>
-				<li>Be successful and print a success message, for ex. <span class="console">Created new user 'Bill'</span></li>
-				<li>Print a message if no action was taken, for ex. <span class="console">The app pool 'MyWeb' was already stopped</span></li>
-				<li>Throw an exception detailing the reason of the failure</li>
-			</ul>
-				
-		</div>
-
-
-		<h2>Common deployment aspects</h2>
-		
-		<div class="section">
-			
-			<p>
-				The default behaviour in Powershell is to keep going after an error occurs.
-				There are a few "guard" commands that we can include to make the script stop after the first error.
-			</p>
-			
-			<p>
-				Another common need during deployments is to log everything that happens during the process.
-				<strong>psDeploy</strong> can help maintain a journal of all the script that have been run on a specific machine,
-				a well as detailled logs of each individual deployment.
-			</p>
-			
-			<p>
-				Finally, it is recommended to use Powershell's <a href="http://www.microsoft.com/technet/scriptcenter/topics/winpsh/strictmode.mspx">strict mode</a>, which validates the script's syntax
-				and catches errors such as typos, undeclared variables and non-existent properties.
-			</p>
-			
-			<p>
-				All these aspects are demonstrated in the following script, which can be used a template for every new deployment script:
-			
-				<pre class="prettyprint code-standalone">
-# Standard guards 
-Set-StrictMode -Version 2.0 
-$ErrorActionPreference = 'Stop' 
-Trap [Exception] 
-{ 
-    Write-DeploymentFailure 'My app name' 
-    break 
-}
-
-# Load modules
-Import-Module psDeploy
-
-# The actual install 
-Start-Log -Name 'MyApp_' -AppendDate 
-...
-...
-...
-
-# Finished!
-Write-DeploymentSuccess 'My app name'
-				</pre>
+				You can then have a look at the <a href="examples.html">examples page</a> to get started!
 			</p>
 			
 		</div>
-		
+
 		<h2>Additional notes</h2>
 		
 		<div class="section">
