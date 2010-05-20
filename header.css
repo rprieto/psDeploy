@@ -20,7 +20,7 @@
 
 #header-menu #top
 {
-	border-bottom: none;
+	border-bottom: 1 px solid gray;
 }
 
 #header-menu #bottom
@@ -42,6 +42,8 @@
 {
 	width: 4.5em;
 	padding-left: 5px;
+	border-right: 1px solid gray;
+	color: black;
 }
 
 #header-menu li a
@@ -55,13 +57,12 @@
 {
 	padding: 0.2em 0.7em;
 	display: block;
-	border-left: 1px solid ghostwhite;
-	border-right: 1px solid ghostwhite;
 	margin-right: 0px;
 	color: #4183C4;
 }
 
 #header-menu .current,
+#header-menu li.title,
 #header-menu li a:hover
 {
 	background-image: url('menubackground.png');
