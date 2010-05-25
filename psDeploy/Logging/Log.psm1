@@ -42,7 +42,7 @@ function Start-Log
 }
 
 
-<# 
+<#
 .Synopsis 
 Writes a success message to the console and global log file 
 #> 
@@ -51,19 +51,20 @@ function Write-DeploymentSuccess
     param 
     ( 
         [string] $Application = $(throw 'Must specify the application name'), 
-        [string] $LogFile = "$defaultLogFolder\Deployments.txt"
+        [string] $LogFile = "$defaultLogFolder\Deployments.txt" 
     )
 
         $message = " 
-    ------------------------------- 
-    $Application 
-    $($myInvocation.ScriptName) 
-    $(Get-Date) 
-    Deployment successful 
-    -------------------------------"    
+    -------------------------------------------- 
+    Application    $Application 
+    Script path    $($myInvocation.ScriptName) 
+    Run by user    $env:USERDOMAIN\$env:USERNAME 
+    Date           $(Get-Date) 
+    Status         Deployment successful 
+    --------------------------------------------"    
     
     Write-Host $message 
-    Add-ToFile -Path $LogFile -Value $message
+    Add-ToFile -Path $LogFile -Value $message 
 }
 
 
@@ -76,19 +77,20 @@ function Write-DeploymentFailure
     param 
     ( 
         [string] $Application = $(throw 'Must specify the application name'), 
-        [string] $LogFile = "$defaultLogFolder\Deployments.txt"
+        [string] $LogFile = "$defaultLogFolder\Deployments.txt" 
     )
 
         $message = " 
-    ------------------------------- 
-    $Application 
-    $($myInvocation.ScriptName) 
-    $(Get-Date) 
-    Deployment failed 
-    -------------------------------"   
+    -------------------------------------------- 
+    Application    $Application 
+    Script path    $($myInvocation.ScriptName) 
+    Run by user    $env:USERDOMAIN\$env:USERNAME 
+    Date           $(Get-Date) 
+    Status         Deployment failed 
+    --------------------------------------------"   
       
     Write-Warning $message 
-    Add-ToFile -Path $LogFile -Value $message
+    Add-ToFile -Path $LogFile -Value $message 
 }
 
 
