@@ -124,6 +124,27 @@ catch
 			
 		</div>
 		
+		<h2>Driving the deployments</h2>
+		
+		<div class="section">
+		
+			<p>
+				When deploying from a local desktop, the CI server or any other machine, Powershell scripts need to be triggered externally. <br />
+				A common way to do this is to call them from a DOS batch file, or from something similar to the ANT <span class="console">&lt;exec&gt;</span> task.
+			</p>
+			
+			<p>
+				We would recommended calling powershell the following way, as it runs the scripts in the exact same context as the Powershell ISE:
+				<pre class="prettyprint code-standalone">
+powershell.exe -File .\deploy.ps1
+				</pre>
+				
+				Using other syntaxes might trigger unexpected behaviours, such as strict-mode or the default error action not being applied to imported modules.
+				This could be the intended behaviour, but it's important to be aware of the differences with the ISE.
+			</p>
+			
+		</div>
+		
 	</body>
 	
 </html>
