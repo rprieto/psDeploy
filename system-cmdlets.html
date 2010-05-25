@@ -1,7 +1,7 @@
 <html>
 
 	<head>
-		<title>psDeploy - File automation cmdlets</title>
+		<title>psDeploy - System query cmdlets</title>
 		<meta name="description" content="Powershell cmdlets to automate file and folder operations during deployments" />
 		
 		<link type="text/css" rel="stylesheet" href="style.css"/>
@@ -24,7 +24,7 @@
 
 		<div id="header">
 			<div id="header-title">
-				<h1>psDeploy - File automation cmdlets</h1>
+				<h1>psDeploy - System query cmdlets</h1>
 			</div>
 			<div id="header-menu">
 				<ul id="top">
@@ -37,60 +37,44 @@
 					<li class="title">Cmdlets</li>
 					<li><a href="iis-6-cmdlets.html">IIS 6</a></li>
 					<li><a href="windows-cmdlets.html">Windows</a></li>
-					<li><a href="system-cmdlets.html">System</a></li>
-					<li><span class="current">Files and folders</span></li>
+					<li><span class="current">System</span></li>
+					<li><a href="file-cmdlets.html">Files and folders</a></li>
 					<li><a href="logging-cmdlets.html">Logging</a></li>
 				</ul>
 			</div>
 		</div>
 	
 		<p style="margin-top: 3em;">
-			This is the list of commandlets for file automation. <br />
+			This is the list of commandlets for system queries. <br />
 		</p>
 	
-		<h2>Folder operations</h2>
+		<h2>Hardware</h2>
 	
-			<h3>Clear-FolderContents</h3>
+			<h3>Get-TotalRam</h3>
 			
 			<div class="accordion">
 				<h4><a href="#">Description</a></h4>
 				<div>
-					Cleans the specified folder if it exists. <br />
-					This removes any existing content but preserves the actual folder.
+					Returns the total amount of RAM on the current machine, in MB. <br />
 				</div>
 				<h4><a href="#">Parameters</a></h4>
 				<div>
-					<table class="cmdlet-parameters">
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Required</th>
-							<th>Description</th>
-							<th>Example</th>
-						</tr>
-						<tr>
-							<td>Path</td>
-							<td>string</td>
-							<td><img src="tick.png" /></td>
-							<td>Path to the folder to clean</td>
-							<td>C:\Target\Folder</td>
-						</tr>
-					</table>
+					<p>
+						This cmdlet does not have any parameters.
+					</p>
 				</div>
 				<h4><a href="#">Code sample</a></h4>
 				<div>
-					<pre class="prettyprint code-sample">Clear-FolderContents -Path "C:\Target\Folder"</pre>
+					<pre class="prettyprint code-sample">Get-TotalRam</pre>
 				</div>
-			</div>	
+			</div>
 
-			<h3>New-Backup</h3>
+			<h3>Get-DiskSize</h3>
 			
 			<div class="accordion">
 				<h4><a href="#">Description</a></h4>
 				<div>
-					Creates a backup of the specified folder if it exists.<br />
-					The backup is created as a subfolder of the destination, using the current date as part of the folder name. <br />
-					This cmdlet does not do anything if the source folder does not exist.
+					Returns the total size of the target disk, in MB.
 				</div>
 				<h4><a href="#">Parameters</a></h4>
 				<div>
@@ -103,75 +87,49 @@
 							<th>Example</th>
 						</tr>
 						<tr>
-							<td>Source</td>
-							<td>string</td>
+							<td>Letter</td>
+							<td>char</td>
 							<td><img src="tick.png" /></td>
-							<td>Path to the folder to backup</td>
-							<td>C:\Target\MyApplication</td>
-						</tr>
-						<tr>
-							<td>Destination</td>
-							<td>string</td>
-							<td><img src="tick.png" /></td>
-							<td>Folder that will contain the backup</td>
-							<td>C:\Backups</td>
-						</tr>					</table>
-				</div>
-				<h4><a href="#">Code sample</a></h4>
-				<div>
-					<pre class="prettyprint code-sample">New-Backup -Source "C:\Target\MyApplication" -Destination "C:\Backups"</pre>
-				</div>
-			</div>	
-			
-		</div>
-	
-		<h2>Archives</h2>
-		
-		<div class="section">
-		
-			<h3>Expand-Zip</h3>
-			
-			<div class="accordion">
-				<h4><a href="#">Description</a></h4>
-				<div>
-					Extracts the contents of a ZIP archive to the specified folder.
-				</div>
-				<h4><a href="#">Parameters</a></h4>
-				<div>
-					<table class="cmdlet-parameters">
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Required</th>
-							<th>Description</th>
-							<th>Example</th>
-						</tr>
-						<tr>
-							<td>File</td>
-							<td>string</td>
-							<td><img src="tick.png" /></td>
-							<td>Path to the ZIP file</td>
-							<td>C:\Builds\Version1.zip</td>
-						</tr>
-						<tr>
-							<td>Destination</td>
-							<td>string</td>
-							<td><img src="tick.png" /></td>
-							<td>Target folder to extract to</td>
-							<td>C:\Target</td>
-						</tr>
-						<tr>
-							<td>CleanDestinationFirst</td>
-							<td>switch</td>
-							<td></td>
-							<td>Add this switch to deleted the destination folder before extracting</td>
-							<td></td>
+							<td>Drive letter</td>
+							<td>C</td>
 						</tr>
 					</table>
 				</div>
 				<h4><a href="#">Code sample</a></h4>
 				<div>
-					<pre class="prettyprint code-sample">Expand-Zip -File "C:\Builds\Version1.zip" -Destination "C:\Target"</pre>
+					<pre class="prettyprint code-sample">Get-DiskSize -Letter 'C'</pre>
+				</div>
+			</div>
+			
+			<h3>Get-DiskFreeSpace</h3>
+			
+			<div class="accordion">
+				<h4><a href="#">Description</a></h4>
+				<div>
+					Return the free space of the target disk, in MB.
+				</div>
+				<h4><a href="#">Parameters</a></h4>
+				<div>
+					<table class="cmdlet-parameters">
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Required</th>
+							<th>Description</th>
+							<th>Example</th>
+						</tr>
+						<tr>
+							<td>Letter</td>
+							<td>char</td>
+							<td><img src="tick.png" /></td>
+							<td>Drive letter</td>
+							<td>C</td>
+						</tr>
+					</table>
+				</div>
+				<h4><a href="#">Code sample</a></h4>
+				<div>
+					<pre class="prettyprint code-sample">Get-DiskFreeSpace -Letter 'C'</pre>
 				</div>
 			</div>
 			
