@@ -1,28 +1,26 @@
 Set-StrictMode -Version 2
 $ErrorActionPreference = 'Stop' 
 
-try
-{
-    Set-Location (Split-Path $MyInvocation.MyCommand.Path) 
-    Import-Module .\psDeploy\psDeploy.psm1
+Set-Location (Split-Path $MyInvocation.MyCommand.Path) 
+Import-Module .\psDeploy\psDeploy.psm1 -Force
 
-    Start-Log -Name 'MyApp_' -AppendDate 
+
+$psDeploy.Log.Name = 'Example2'
+$psDeploy.Log.Journal = 'C:\Logs\Journal.txt'
+$psDeploy.Log.Transcripts = 'C:\Logs\Transcripts'
+
+
+deploy -transcript -journal -script {
+
+    Write-Host "Doing stuff..."
+    #Stop-Service 'Foo'
+
+} -success {
     
-    #
-    # Insert deployment steps here
-    
-    Stop-IIS6AppPool -Name "MyPool"
-    New-LocalUser -Name "Bob" -Password "123456"
-    Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
-    New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,Wed" -At 18:30
+    Write-Host "Let's start testing"
 
-    #
-    #
+} -failure {
 
-    Write-DeploymentSuccess 'My app name'
-}
-catch
-{
-    $_ | Write-Warning
-    Write-DeploymentFailure 'My app name' 
+    Write-Host "Please check the logs"
+
 }
