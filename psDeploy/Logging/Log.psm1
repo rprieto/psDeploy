@@ -1,19 +1,14 @@
-<#
-    Default log folder for all logging cmdlets
-#>
-$defaultLogFolder = 'C:\Logs'
-
 
 <#
 .Synopsis
 Starts logging everything that happens during this deploymeny
 #>
-function Start-Log
+function Start-UniqueTranscript
 {
     param
     (
         [string] $Name = $(throw 'Must provide the file name or prefix'),
-        [string] $Path = $defaultLogFolder,
+        [string] $Path = $(throw 'Must provide the folder where to store the transcripts'),
         [switch] $AppendDate
     ) 
 
@@ -23,16 +18,16 @@ function Start-Log
         {
             if (!(Test-Path $Path))
             {
-                New-Item $Path -type directory
+                New-Item $Path -type directory | Out-Null
             }
             
             $fileName = $Name
             if ($AppendDate)
             {
-                $fileName += Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s"
+                $fileName += '_' + (Get-Date -Format "yyyy-MM-dd-hh\hmm\mss\s")
             }
         
-            Start-Transcript -Path "$Path\$fileName.log"
+            Start-Transcript -Path "$Path\$fileName.txt"
         }
         Catch [System.Management.Automation.PSNotSupportedException]
         {
@@ -42,55 +37,40 @@ function Start-Log
 }
 
 
-<#
-.Synopsis 
-Writes a success message to the console and global log file 
-#> 
-function Write-DeploymentSuccess 
-{    
-    param 
-    ( 
-        [string] $Application = $(throw 'Must specify the application name'), 
-        [string] $LogFile = "$defaultLogFolder\Deployments.txt" 
-    )
-
-        $message = " 
-    -------------------------------------------- 
-    Application    $Application 
-    Script path    $($myInvocation.ScriptName) 
-    Run by user    $env:USERDOMAIN\$env:USERNAME 
-    Date           $(Get-Date) 
-    Status         Deployment successful 
-    --------------------------------------------"    
-    
-    Write-Host $message 
-    Add-ToFile -Path $LogFile -Value $message 
+function Stop-UniqueTranscript
+{
+    try
+    {
+        Stop-Transcript
+    }
+    catch [System.Management.Automation.PSNotSupportedException]
+    {
+    }
 }
 
 
-<# 
-.Synopsis 
-Writes a failure message to the console and global log file 
-#> 
-function Write-DeploymentFailure 
-{ 
+<#
+.Synopsis
+Adds an extry to a journal file with the details of the deployment that just finished
+#>
+function Get-JournalEntry
+{    
     param 
-    ( 
-        [string] $Application = $(throw 'Must specify the application name'), 
-        [string] $LogFile = "$defaultLogFolder\Deployments.txt" 
+    (
+        [string] $Application = $(throw 'Must specify the application name'),
+        [string] $Status = $(throw 'Status message is required'),
+        [string] $ScriptName = $myInvocation.ScriptName
     )
 
-        $message = " 
-    -------------------------------------------- 
-    Application    $Application 
-    Script path    $($myInvocation.ScriptName) 
-    Run by user    $env:USERDOMAIN\$env:USERNAME 
-    Date           $(Get-Date) 
-    Status         Deployment failed 
-    --------------------------------------------"   
-      
-    Write-Warning $message 
-    Add-ToFile -Path $LogFile -Value $message 
+    $message = " 
+Application    $Application 
+Script path    $ScriptName
+Run by user    $env:USERDOMAIN\$env:USERNAME
+Date           $(Get-Date) 
+Status         $Status
+"    
+    
+    return $message    
 }
 
 
@@ -111,5 +91,5 @@ function Add-ToFile
         New-Item -Path $Path -Type File -Force | Out-Null
     }
     
-    $Value | Out-File -FilePath $Path -Append -Force
+    $Value | Out-File -FilePath $Path -Encoding ASCII -Append -Force
 }

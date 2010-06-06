@@ -31,7 +31,7 @@ function Clear-FolderContents
 Creates a backup of the source directory if it exists. 
 The backup is created as a timestamped subfolder in the specified destination folder. 
 #> 
-function New-Backup 
+function New-Backup
 { 
     param 
     ( 
