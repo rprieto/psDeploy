@@ -1,0 +1,88 @@
+<html>
+
+	<head>
+		<title>psDeploy - Deployment cmdlet examples</title>
+		<meta name="description" content="Powershell library to automate common deployment aspects and simplify your deployment scripts (Windows operations, IIS, logging...)." />
+		
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link type="text/css" rel="stylesheet" href="header.css"/>
+		<link type="text/css" rel="stylesheet" href="external/prettify/prettify.css" />
+		
+		<script type="text/javascript" src="external/prettify/prettify.js"></script>
+		<script type="text/javascript" src="external/jquery/jquery-1.4.2.min.js"></script>
+		<script>			
+			$(document).ready(function() {
+				prettyPrint();
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+
+		<a href="http://github.com/rprieto/psDeploy">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+		</a> 
+
+		<div id="header">
+			<div id="header-title">
+				<h1>psDeploy - deployment automation library</h1>
+			</div>
+			<div id="header-menu">
+				<ul id="top">
+					<li class="title">Home</li>
+					<li><a href="index.html">Introduction</a></li>
+					<li><span class="current">Cmdlet library</span></li>
+					<li><a href="framework.html">Framework</a></li>
+					<li><a href="powershell-2-on-windows-xp-sp2.html">Windows XP</a></li>
+				</ul>
+				<ul id="bottom">
+					<li class="title">Cmdlets</li>
+					<li><a href="iis-6-cmdlets.html">IIS 6</a></li>
+					<li><a href="windows-cmdlets.html">Windows</a></li>
+					<li><a href="system-cmdlets.html">System</a></li>
+					<li><a href="file-cmdlets.html">Files and folders</a></li>
+					<li><a href="logging-cmdlets.html">Logging</a></li>
+				</ul>
+			</div>
+		</div>
+	
+		<h2>Cmdlet library</h2>
+
+		<div class="section">
+
+			<p>
+				On aspect of <strong>psDeploy</strong> is the library of additional cmdlets it provides.
+				These usually fall into 2 categories:
+				<ul>
+					<li>Helpers for common deployment operations, such as backups and user management</li>
+					<li>Automation for older Microsoft products that didn't ship with cmdlets, such as IIS6</li>
+				</ul>
+			</p>
+
+			<pre class="prettyprint code-standalone">
+Stop-IIS6AppPool -Name "MyPool"
+			</pre>
+			<pre class="prettyprint code-standalone">
+New-LocalUser -Name "Bob" -Password "123456"
+			</pre>
+			<pre class="prettyprint code-standalone">
+Expand-Zip -File "C:\Builds\Version3.zip" -Destination "C:\MyService" -CleanDestinationFirst
+			</pre>
+			<pre class="prettyprint code-standalone">
+New-ScheduledTask -Name "MyTask" -Path "C:\Task.exe" -Every 2 -Weeks -On "Mon,Wed" -At 18:30
+			</pre>
+				
+			<p>The commandlets will usually have one of the following outcome:</p>
+
+			<ul>
+				<li>Be successful and print a success message, for ex. <span class="console">Created new user 'Bill'</span></li>
+				<li>Print a message if no action was taken, for ex. <span class="console">The app pool 'MyWeb' was already stopped</span></li>
+				<li>Throw an exception detailing the reason of the failure</li>
+			</ul>
+			
+		</div>
+		
+	</body>
+	
+</html>
